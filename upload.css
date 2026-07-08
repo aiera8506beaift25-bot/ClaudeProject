@@ -1,0 +1,752 @@
+/* =========================================================
+   upload.css  —  Upload Document Page Styles
+   Extends the shared styles.css design system.
+   ========================================================= */
+
+/* Spinner animation for analyze button loading state */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.btn-spinner {
+  animation: spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+/* ── Page-level overrides ───────────────────────────────── */
+.upload-page {
+  min-height: 100vh;
+  background-color: var(--color-bg);
+}
+
+/* ── Main wrapper ───────────────────────────────────────── */
+.upload-main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 40px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ── Two-column layout ──────────────────────────────────── */
+.upload-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* ── Shared column header ───────────────────────────────── */
+.col-header {
+  margin-bottom: 28px;
+}
+
+.col-title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  color: var(--color-text-main);
+  margin-bottom: 6px;
+}
+
+.col-subtitle {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* ── LEFT column ────────────────────────────────────────── */
+.upload-left {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 2×2 document type grid */
+.doc-type-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+/* ── Document type card ─────────────────────────────────── */
+.doc-type-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  padding: 24px 22px 22px;
+  background-color: #18181B;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.22s ease,
+              box-shadow 0.22s ease,
+              transform 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.22s ease;
+  width: 100%;
+  font-family: inherit;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+/* Radial glow on hover/selected */
+.doc-type-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.07) 0%, transparent 65%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.doc-type-card:hover {
+  border-color: rgba(59, 130, 246, 0.45);
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.18),
+              0 8px 32px rgba(59, 130, 246, 0.1),
+              0 2px 12px rgba(0, 0, 0, 0.35);
+  transform: translateY(-3px);
+}
+
+.doc-type-card:hover::before {
+  opacity: 1;
+}
+
+/* Selected state */
+.doc-type-card.selected {
+  border-color: var(--color-brand-accent);
+  background-color: rgba(59, 130, 246, 0.06);
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.35),
+              0 8px 32px rgba(59, 130, 246, 0.15),
+              0 2px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+}
+
+.doc-type-card.selected::before {
+  opacity: 1;
+}
+
+/* Checkmark ring — top-right corner */
+.card-check-ring {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s ease,
+              background-color 0.2s ease,
+              transform 0.2s ease;
+}
+
+.card-check-icon {
+  width: 11px;
+  height: 11px;
+  color: #fff;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.doc-type-card.selected .card-check-ring {
+  border-color: var(--color-brand-accent);
+  background-color: var(--color-brand-accent);
+}
+
+.doc-type-card.selected .card-check-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Card icon box */
+.card-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: rgba(59, 130, 246, 0.06);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-brand-accent);
+  margin-bottom: 16px;
+  flex-shrink: 0;
+  transition: background-color 0.22s ease,
+              box-shadow 0.22s ease;
+}
+
+.card-icon-box svg {
+  width: 22px;
+  height: 22px;
+}
+
+.doc-type-card:hover .card-icon-box,
+.doc-type-card.selected .card-icon-box {
+  background-color: rgba(59, 130, 246, 0.12);
+  box-shadow: 0 0 16px rgba(59, 130, 246, 0.3);
+}
+
+/* Card text body */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #FAFAFA;
+  line-height: 1.3;
+  letter-spacing: -0.1px;
+}
+
+.card-desc {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* ── Step indicator ─────────────────────────────────────── */
+.step-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-top: 4px;
+}
+
+.step-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  flex-shrink: 0;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.step-dot.step-active {
+  background-color: var(--color-brand-accent);
+  border-color: var(--color-brand-accent);
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+}
+
+.step-line {
+  flex: 1;
+  height: 1.5px;
+  background: linear-gradient(90deg,
+    var(--color-brand-accent) 0%,
+    rgba(255, 255, 255, 0.1) 100%);
+  margin: 0 8px;
+  transition: background 0.3s ease;
+}
+
+.step-line.step-complete {
+  background: var(--color-brand-accent);
+}
+
+/* ── RIGHT column ───────────────────────────────────────── */
+.upload-right {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 100px;
+}
+
+/* ── Upload card (glassmorphism) ────────────────────────── */
+.upload-card {
+  background: rgba(24, 24, 27, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.4),
+              0 1px 0 rgba(255, 255, 255, 0.04) inset;
+  margin-bottom: 20px;
+  transition: border-color 0.25s ease;
+}
+
+.upload-card.drag-active {
+  border-color: var(--color-brand-accent);
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.3),
+              0 4px 40px rgba(59, 130, 246, 0.15),
+              0 4px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Drop zone ──────────────────────────────────────────── */
+.drop-zone {
+  border: 1.5px dashed rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.22s ease,
+              background-color 0.22s ease;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.drop-zone:focus-visible {
+  outline: 2px solid var(--color-brand-accent);
+  outline-offset: 2px;
+}
+
+.drop-zone:hover,
+.drop-zone.is-hovered {
+  border-color: rgba(59, 130, 246, 0.4);
+  background-color: rgba(59, 130, 246, 0.03);
+}
+
+.drop-zone.is-dragover {
+  border-color: var(--color-brand-accent);
+  border-style: solid;
+  background-color: rgba(59, 130, 246, 0.06);
+}
+
+.drop-zone.has-file {
+  border-color: rgba(34, 197, 94, 0.35);
+  background-color: rgba(34, 197, 94, 0.03);
+  cursor: default;
+}
+
+.file-input-hidden {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* States — only one shown at a time via JS class toggling */
+.drop-zone-idle,
+.drop-zone-dragover,
+.drop-zone-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.drop-zone-dragover,
+.drop-zone-success {
+  display: none;
+}
+
+.drop-zone.is-dragover .drop-zone-idle      { display: none; }
+.drop-zone.is-dragover .drop-zone-dragover  { display: flex; }
+
+.drop-zone.has-file .drop-zone-idle         { display: none; }
+.drop-zone.has-file .drop-zone-success      { display: flex; }
+.drop-zone.has-file .file-input-hidden      { pointer-events: none; }
+
+/* Upload icon */
+.dz-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background-color: rgba(59, 130, 246, 0.07);
+  border: 1px solid rgba(59, 130, 246, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+  transition: box-shadow 0.25s ease;
+}
+
+.dz-icon-glow {
+  box-shadow: 0 0 24px rgba(59, 130, 246, 0.4);
+  background-color: rgba(59, 130, 246, 0.14);
+  border-color: var(--color-brand-accent);
+}
+
+.dz-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--color-brand-accent);
+}
+
+.dz-heading {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-main);
+  margin: 0;
+}
+
+.dz-sub {
+  font-size: 13px;
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+.btn-choose-file {
+  background-color: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: var(--color-brand-accent);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+  transition: background-color 0.2s ease,
+              border-color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+.btn-choose-file:hover {
+  background-color: rgba(59, 130, 246, 0.18);
+  border-color: var(--color-brand-accent);
+  box-shadow: 0 0 16px rgba(59, 130, 246, 0.2);
+}
+
+.dz-formats {
+  font-size: 12px;
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+/* Dragover hint */
+.drop-zone-dragover .dz-heading {
+  color: var(--color-brand-accent);
+  font-size: 18px;
+}
+
+/* File preview (success state) */
+.file-preview-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background-color: rgba(34, 197, 94, 0.06);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-radius: 12px;
+  padding: 14px 16px;
+  width: 100%;
+  max-width: 340px;
+}
+
+.file-preview-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-brand-accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.file-preview-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+}
+
+.file-preview-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file-preview-size {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.file-remove-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--color-text-muted);
+  border-radius: 6px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease,
+              color 0.2s ease,
+              border-color 0.2s ease;
+}
+
+.file-remove-btn:hover {
+  background-color: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #EF4444;
+}
+
+.dz-change-hint {
+  font-size: 12px;
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+.dz-link-btn {
+  background: none;
+  border: none;
+  color: var(--color-brand-accent);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: opacity 0.2s ease;
+}
+
+.dz-link-btn:hover {
+  opacity: 0.75;
+}
+
+/* ── Trust badges ───────────────────────────────────────── */
+.trust-badges {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--color-text-muted);
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+.trust-badge svg {
+  color: var(--color-success);
+  flex-shrink: 0;
+}
+
+/* ── Analyze CTA ────────────────────────────────────────── */
+.analyze-cta-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Hint text */
+.analyze-hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.analyze-hint.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hint-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-text-light);
+  flex-shrink: 0;
+}
+
+.hint-dot.dot-type-done {
+  background-color: var(--color-success);
+}
+
+.analyze-hint span {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* ── Primary analyze button ─────────────────────────────── */
+.btn-analyze {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 18px 32px;
+  border-radius: 14px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.25s ease,
+              box-shadow 0.25s ease,
+              transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Disabled state */
+.btn-analyze:disabled {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.25);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.btn-analyze:disabled .btn-analyze-arrow {
+  opacity: 0.3;
+}
+
+/* Enabled state */
+.btn-analyze:not(:disabled) {
+  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 24px rgba(59, 130, 246, 0.35),
+              0 1px 0 rgba(255, 255, 255, 0.12) inset;
+}
+
+.btn-analyze:not(:disabled)::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 60%);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.btn-analyze:not(:disabled):hover {
+  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.45),
+              0 1px 0 rgba(255, 255, 255, 0.1) inset;
+  transform: translateY(-2px);
+}
+
+.btn-analyze:not(:disabled):active {
+  transform: translateY(0);
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.35);
+}
+
+.btn-analyze-arrow {
+  margin-left: 2px;
+  transition: transform 0.2s ease;
+}
+
+.btn-analyze:not(:disabled):hover .btn-analyze-arrow {
+  transform: translateX(4px);
+}
+
+
+/* ── Responsive Breakpoints ─────────────────────────────── */
+
+/* Tablet: stack columns */
+@media (max-width: 900px) {
+  .upload-main {
+    padding: 100px 28px 64px;
+  }
+
+  .upload-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .upload-right {
+    position: static; /* un-stick on mobile */
+  }
+
+  .upload-page-title {
+    font-size: 38px;
+    letter-spacing: -1.5px;
+  }
+
+  .upload-page-subtitle {
+    font-size: 16px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 560px) {
+  .upload-main {
+    padding: 88px 20px 48px;
+  }
+
+  .upload-page-title {
+    font-size: 30px;
+    letter-spacing: -1px;
+  }
+
+  .doc-type-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* On mobile: cards go horizontal (icon left, text right) */
+  .doc-type-card {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 18px;
+  }
+
+  .card-icon-box {
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .card-check-ring {
+    top: 12px;
+    right: 12px;
+  }
+
+  .upload-card {
+    padding: 24px 20px;
+  }
+
+  .trust-badges {
+    gap: 14px;
+  }
+
+  .btn-analyze {
+    padding: 16px 24px;
+    font-size: 15px;
+  }
+
+  .upload-page-header {
+    margin-bottom: 36px;
+  }
+
+  .col-header {
+    margin-bottom: 20px;
+  }
+}

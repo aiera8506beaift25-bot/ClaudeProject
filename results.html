@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ClauseWise AI analysis results — view risk scores, plain-English summaries and negotiation suggestions for your legal document.">
+  <title>Analysis Results — ClauseWise</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="results.css">
+</head>
+<body class="results-page">
+
+  <!-- ── App Workspace Header ──────────────────────────────── -->
+  <header class="app-header">
+    <div class="app-header-container">
+      <div class="app-header-left">
+        <a href="index.html" class="logo-area">
+          <svg class="logo-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/>
+            <path d="M7 8H17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M7 12H17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M7 16H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="16" cy="16" r="2.5" fill="currentColor"/>
+          </svg>
+          <span class="logo-text">ClauseWise</span>
+        </a>
+      </div>
+
+      <div class="app-header-center">
+        <h1 class="app-page-title">AI Analysis</h1>
+      </div>
+
+      <div class="app-header-right">
+        <a href="index.html" class="btn-app-icon" title="Back to Home">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </a>
+        <button class="btn-app-icon" aria-label="Settings" title="Settings">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+        </button>
+        <div class="app-avatar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="results-main">
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- TOP HEADER BAR                                    -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="results-header">
+      <div class="results-header-inner">
+
+        <!-- File info -->
+        <div class="file-info">
+          <div class="file-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+          <div class="file-meta">
+            <span class="file-name" id="headerFileName">Internship_Offer_Letter.pdf</span>
+            <div class="file-tags">
+              <span class="file-category-badge">Internship Offer Letter</span>
+              <span class="upload-success-badge">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Upload Successful
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Header actions -->
+        <div class="header-actions">
+          <button class="btn-header-secondary" id="btnDownloadReport">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download Report
+          </button>
+          <a href="upload.html" class="btn-header-primary">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/>
+              <line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+            Analyze Another
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- MAIN TWO-COLUMN LAYOUT                            -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="results-container">
+      <div class="results-layout">
+
+        <!-- ── LEFT: Document Viewer (65%) ──────────────── -->
+        <div class="doc-viewer-col">
+          <div class="doc-viewer-card">
+
+            <!-- Viewer toolbar -->
+            <div class="viewer-toolbar">
+              <div class="viewer-toolbar-left">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                </svg>
+                <span>Document Viewer</span>
+                <span class="viewer-page-count">· 3 pages</span>
+              </div>
+              <div class="viewer-legend">
+                <span class="legend-dot legend-high"></span><span>High Risk</span>
+                <span class="legend-dot legend-medium"></span><span>Medium Risk</span>
+                <span class="legend-dot legend-safe"></span><span>Safe</span>
+              </div>
+            </div>
+
+            <!-- Document text with highlighted clauses -->
+            <div class="doc-content" id="docContent">
+
+              <div class="doc-page">
+                <div class="doc-header-block">
+                  <h2 class="doc-company">TechCorp Solutions Pvt. Ltd.</h2>
+                  <p class="doc-doc-title">INTERNSHIP OFFER LETTER</p>
+                  <p class="doc-date">Date: June 12, 2026</p>
+                </div>
+
+                <p class="doc-para">Dear Arjun Mehta,</p>
+                <p class="doc-para">We are pleased to extend this offer of internship to you at TechCorp Solutions Pvt. Ltd. ("the Company"). This letter details the terms and conditions governing your internship. Please read all clauses carefully before signing.</p>
+
+                <div class="doc-section-title">1. POSITION AND DURATION</div>
+                <p class="doc-para">You will be joining as a <strong>Software Development Intern</strong> in the Engineering division reporting to the Head of Engineering. <span class="clause-highlight clause-safe" data-clause="duration" tabindex="0">The internship shall commence on July 1, 2026, and continue for a period of three (3) months, ending on September 30, 2026, unless extended or terminated earlier in accordance with the terms herein.</span></p>
+
+                <div class="doc-section-title">2. COMPENSATION</div>
+                <p class="doc-para"><span class="clause-highlight clause-medium" data-clause="stipend" tabindex="0">The intern shall receive a monthly stipend of ₹8,000 (Rupees Eight Thousand only). This stipend is subject to applicable tax deductions as per prevailing government regulations. The Company reserves the right to revise, reduce, or withhold the stipend based on attendance and performance metrics determined solely at the Company's discretion.</span> Payment will be credited on or before the 7th of each following month.</p>
+
+                <div class="doc-section-title">3. WORKING HOURS AND ATTENDANCE</div>
+                <p class="doc-para">Working hours are from 9:00 AM to 6:00 PM, Monday through Friday. <span class="clause-highlight clause-high" data-clause="overtime" tabindex="0">The intern may be required to work on weekends, public holidays, or beyond regular working hours as deemed necessary by the management without any additional compensation or overtime pay whatsoever.</span></p>
+
+                <div class="doc-section-title">4. CONFIDENTIALITY OBLIGATIONS</div>
+                <p class="doc-para"><span class="clause-highlight clause-high" data-clause="confidentiality" tabindex="0">The intern agrees to maintain absolute confidentiality regarding all proprietary information, trade secrets, business strategies, client lists, and technical data. This confidentiality obligation shall remain in full force and effect indefinitely — even after termination of this internship — and shall apply across the globe without any territorial limitation.</span> Breach of this clause shall make the intern liable to the Company for damages and legal action.</p>
+
+                <div class="doc-section-title">5. INTELLECTUAL PROPERTY</div>
+                <p class="doc-para"><span class="clause-highlight clause-high" data-clause="ip" tabindex="0">All inventions, works, developments, discoveries, improvements, software code, designs, and creative works made, conceived, or contributed to by the intern during the internship — whether or not related to the Company's business and whether or not developed during working hours or using Company resources — shall be the exclusive property of the Company.</span> The intern agrees to execute any documents required to transfer such rights.</p>
+
+                <div class="doc-section-title">6. NON-COMPETE AND NON-SOLICITATION</div>
+                <p class="doc-para"><span class="clause-highlight clause-high" data-clause="noncompete" tabindex="0">For a period of 12 (twelve) months following the conclusion of this internship, the intern shall not, directly or indirectly, engage in, be employed by, consult for, or have a financial interest in any business that is in direct or indirect competition with the Company's business operations anywhere in India.</span></p>
+
+                <div class="doc-section-title">7. TERMINATION</div>
+                <p class="doc-para"><span class="clause-highlight clause-medium" data-clause="termination" tabindex="0">The Company may terminate this internship at any time, with or without cause, by providing 7 (seven) days prior written notice. The intern is required to provide 30 (thirty) days written notice prior to resignation.</span> All Company property, including access credentials, must be returned upon termination.</p>
+
+                <div class="doc-section-title">8. CERTIFICATE OF INTERNSHIP</div>
+                <p class="doc-para"><span class="clause-highlight clause-medium" data-clause="certificate" tabindex="0">Upon successful completion of the internship, the Company shall provide an experience certificate within 45 (forty-five) business days. Issuance of the certificate is contingent upon satisfactory performance as determined solely by the Company and return of all Company assets.</span></p>
+
+                <div class="doc-section-title">9. GOVERNING LAW</div>
+                <p class="doc-para"><span class="clause-highlight clause-safe" data-clause="law" tabindex="0">This agreement shall be governed by and construed in accordance with the laws of India. Any disputes arising shall be subject to the exclusive jurisdiction of courts in Bangalore, Karnataka.</span></p>
+
+                <p class="doc-para doc-signature-block">By signing below, you accept all terms and conditions of this offer.</p>
+                <div class="doc-signature-row">
+                  <div>
+                    <div class="doc-sig-line"></div>
+                    <p class="doc-sig-label">Authorised Signatory – TechCorp Solutions</p>
+                  </div>
+                  <div>
+                    <div class="doc-sig-line"></div>
+                    <p class="doc-sig-label">Intern Signature &amp; Date</p>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- /doc-content -->
+          </div><!-- /doc-viewer-card -->
+        </div><!-- /doc-viewer-col -->
+
+
+        <!-- ── RIGHT: Analysis Sidebar (35%) ─────────────── -->
+        <div class="analysis-sidebar">
+
+          <!-- Card 1: Risk Score Gauge -->
+          <div class="sidebar-card risk-gauge-card">
+            <div class="sidebar-card-header">
+              <span class="sidebar-card-title">Risk Score</span>
+              <span class="risk-level-badge badge-high">High Risk</span>
+            </div>
+            <div class="gauge-wrapper">
+              <svg class="gauge-svg" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Track -->
+                <path d="M 20 100 A 80 80 0 0 1 180 100" stroke="rgba(255,255,255,0.06)" stroke-width="14" stroke-linecap="round" fill="none"/>
+                <!-- Fill — animated by JS -->
+                <path id="gaugeFill" d="M 20 100 A 80 80 0 0 1 180 100" stroke="#EF4444" stroke-width="14" stroke-linecap="round" fill="none"
+                      stroke-dasharray="251.2" stroke-dashoffset="251.2"/>
+                <!-- Glow filter -->
+                <defs>
+                  <filter id="gaugeGlow">
+                    <feGaussianBlur stdDeviation="4" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                </defs>
+              </svg>
+              <div class="gauge-center">
+                <span class="gauge-score" id="gaugeScore">0</span>
+                <span class="gauge-max">/100</span>
+                <span class="gauge-label">High Risk</span>
+              </div>
+            </div>
+            <div class="gauge-bar-row">
+              <span class="gauge-bar-label" style="color:var(--color-success)">Low</span>
+              <div class="gauge-bar-track">
+                <div class="gauge-bar-fill" id="gaugeBarFill"></div>
+              </div>
+              <span class="gauge-bar-label" style="color:var(--color-danger)">High</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Quick Statistics -->
+          <div class="sidebar-card stats-card">
+            <div class="sidebar-card-header">
+              <span class="sidebar-card-title">Quick Statistics</span>
+            </div>
+            <div class="stat-rows">
+              <div class="stat-row">
+                <div class="stat-row-left">
+                  <div class="stat-dot stat-dot-high"></div>
+                  <span class="stat-row-label">High Risks</span>
+                </div>
+                <span class="stat-row-value stat-val-high">4</span>
+              </div>
+              <div class="stat-row">
+                <div class="stat-dot stat-dot-medium"></div>
+                <span class="stat-row-label">Medium Risks</span>
+              </div>
+              <span class="stat-row-value stat-val-medium">3</span>
+              <div class="stat-row">
+                <div class="stat-dot stat-dot-safe"></div>
+                <span class="stat-row-label">Safe Clauses</span>
+                <span class="stat-row-value stat-val-safe">2</span>
+              </div>
+              <div class="stat-row">
+                <div class="stat-dot stat-dot-neutral"></div>
+                <span class="stat-row-label">Reading Time</span>
+                <span class="stat-row-value">~8 min</span>
+              </div>
+              <div class="stat-row">
+                <div class="stat-dot stat-dot-neutral"></div>
+                <span class="stat-row-label">Total Clauses</span>
+                <span class="stat-row-value">9</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Plain English Summary -->
+          <div class="sidebar-card summary-card">
+            <div class="sidebar-card-header">
+              <span class="sidebar-card-title">Plain English Summary</span>
+              <span class="ai-badge">
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                AI
+              </span>
+            </div>
+            <ul class="summary-bullets">
+              <li>You'll be a Software Dev Intern at TechCorp for 3 months at ₹8,000/month.</li>
+              <li><span class="bullet-risk-high">⚠ High Risk:</span> You must work weekends &amp; holidays with <em>zero extra pay</em>.</li>
+              <li><span class="bullet-risk-high">⚠ High Risk:</span> Anything you build — even in your spare time — belongs to the company.</li>
+              <li><span class="bullet-risk-high">⚠ High Risk:</span> After leaving, you cannot work at a competing company for <em>12 months</em>.</li>
+              <li><span class="bullet-risk-medium">⚠ Medium:</span> The company can fire you in 7 days; you must give 30 days notice.</li>
+              <li><span class="bullet-risk-medium">⚠ Medium:</span> Stipend can be reduced or withheld based on their discretion.</li>
+              <li>You'll receive an experience certificate within 45 business days after finishing.</li>
+            </ul>
+          </div>
+
+        </div><!-- /analysis-sidebar -->
+      </div><!-- /results-layout -->
+
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- DETECTED RISKS SECTION                            -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <section class="risks-section">
+        <div class="risks-section-header">
+          <div>
+            <div class="section-tag-sm">AI Detection</div>
+            <h2 class="risks-section-title">Detected Clause Risks</h2>
+          </div>
+          <div class="risks-filter-row">
+            <button class="risk-filter-btn active" data-filter="all">All <span class="filter-count">7</span></button>
+            <button class="risk-filter-btn" data-filter="high">High <span class="filter-count filter-count-high">4</span></button>
+            <button class="risk-filter-btn" data-filter="medium">Medium <span class="filter-count filter-count-medium">3</span></button>
+          </div>
+        </div>
+
+        <div class="risks-grid" id="risksGrid">
+
+          <!-- Risk Card 1 -->
+          <div class="risk-card" data-risk="high">
+            <div class="risk-card-top">
+              <div class="risk-icon-box risk-icon-high">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                  <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+              </div>
+              <div class="risk-card-titles">
+                <span class="risk-clause-name">Unpaid Overtime Clause</span>
+                <span class="risk-badge badge-high">High Risk</span>
+              </div>
+            </div>
+            <p class="risk-explanation">You can be required to work weekends and holidays without any additional compensation. This is illegal in many jurisdictions and financially exploitative.</p>
+            <div class="risk-impact-row">
+              <div class="risk-meta-item">
+                <span class="risk-meta-label">Possible Impact</span>
+                <span class="risk-meta-value risk-meta-danger">Financial loss, burnout</span>
+              </div>
+              <div class="risk-meta-item">
+                <span class="risk-meta-label">Clause Location</span>
+                <span class="risk-meta-value">Section 3</span>
+              </div>
+            </div>
+            <div class="risk-action-box">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span><strong>Suggested:</strong> Request a cap on overtime or demand comp-off / additional pay for weekend work.</span>
+            </div>
+          </div>
+
+          <!-- Risk Card 2 -->
+          <div class="risk-card" data-risk="high">
+            <div class="risk-card-top">
+              <div class="risk-icon-box risk-icon-high">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/>
+                  <line x1="12" y1="22" x2="12" y2="15.5"/><line x1="22" y1="8.5" x2="12" y2="15.5"/><line x1="2" y1="8.5" x2="12" y2="15.5"/>
+                </svg>
+              </div>
+              <div class="risk-card-titles">
+                <span class="risk-clause-name">Unlimited IP Ownership</span>
+                <span class="risk-badge badge-high">High Risk</span>
+              </div>
+            </div>
+            <p class="risk-explanation">Any work you create — even personal side projects developed at home — becomes company property. This includes your GitHub projects, freelance work, and personal apps during the internship period.</p>
+            <div class="risk-impact-row">
+              <div class="risk-meta-item">
+                <span class="risk-meta-label">Possible Impact</span>
+                <span class="risk-meta-value risk-meta-danger">Loss of personal creative work</span>
+              </div>
+              <div class="risk-meta-item">
+                <span class="risk-meta-label">Clause Location</span>
+                <span class="risk-meta-value">Section 5</span>
+              </div>
+            </div>
+            <div class="risk-action-box">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span><strong>Suggested:</strong> Add an exclusion carve-out for personal projects unrelated to the company's business.</span>
+            </div>
+          </div>
+
+          <!-- Risk Card 3 -->
+          <div class="risk-card" data-risk="high">
+            <div class="risk-card-top">
+              <div class="risk-icon-box risk-icon-high">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+              </div>
+              <div class="risk-card-titles">
+                <span class="risk-clause-name">12-Month Non-Compete</span>
+                <span class="risk-badge badge-high">High Risk</span>
+              </div>
+            </div>
+            <p class="risk-explanation">You cannot work at any competing company in India for 12 months after leaving. For a student, this severely limits your job options after the internship.</p>
+            <div class="risk-impact-row">
+              <div class="risk-meta-item">
+                <span class="risk-meta-label">Possible Impact</span>
+                <span class="risk-meta-value risk-meta-danger">Career restrictions</span>
+              </div>
+              <div class="risk-meta-item">
+                <span class="risk-meta-label">Clause Location</span>
+                <span class="risk-meta-value">Section 6</span>
+              </div>
+            </div>
+            <div class="risk-action-box">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span><strong>Suggested:</strong> Request removal or reduction to 3 months, limited to direct competitors only.</span>
+            </div>
+          </div>
+
+          <!-- Risk Card 4 -->
+          <div class="risk-card" data-risk="high">
+            <div class="risk-card-top">
+              <div class="risk-icon-box risk-icon-high">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                </svg>
+              </div>
+              <div class="risk-card-titles">
+                <span class="risk-clause-name">Indefinite Confidentiality</span>
+                <span class="risk-badge badge-high">High Risk</span>
+              </div>
+            </div>
+            <p class="risk-explanation">The confidentiality clause has no expiry date and applies worldwide. There is no definition of what counts as "confidential", making it dangerously broad.</p>
+            <div class="risk-impact-row">
+              <div class="risk-meta-item">
+                <span class="risk-meta-label">Possible Impact</span>
+                <span class="risk-meta-value risk-meta-danger">Legal liability forever</span>
+              </div>
+              <div class="risk-meta-item">
+                <span class="risk-meta-label">Clause Location</span>
+                <span class="risk-meta-value">Section 4</span>
+              </div>
+            </div>
+            <div class="risk-action-box">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span><strong>Suggested:</strong> Negotiate a 2-year limit and request a clear definition of what qualifies as confidential information.</span>
+            </div>
+          </div>
+
+          <!-- Risk Card 5 -->
+          <div class="risk-card" data-risk="medium">
+            <div class="risk-card-top">
+              <div class="risk-icon-box risk-icon-medium">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                  <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+              </div>
+              <div class="risk-card-titles">
+                <span class="risk-clause-name">Asymmetric Notice Period</span>
+                <span class="risk-badge badge-medium">Medium Risk</span>
+              </div>
+            </div>
+            <p class="risk-explanation">The company can terminate with 7 days notice, but you must give 30 days notice to resign. This imbalance is unfair to the intern.</p>
+            <div class="risk-impact-row">
+              <div class="risk-meta-item">
+                <span class="risk-meta-label">Possible Impact</span>
+                <span class="risk-meta-value risk-meta-warning">Career planning disruption</span>
+              </div>
+              <div class="risk-meta-item">
+                <span class="risk-meta-label">Clause Location</span>
+                <span class="risk-meta-value">Section 7</span>
+              </div>
+            </div>
+            <div class="risk-action-box">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span><strong>Suggested:</strong> Request equal notice periods — ideally 14 days for both parties.</span>
+            </div>
+          </div>
+
+          <!-- Risk Card 6 -->
+          <div class="risk-card" data-risk="medium">
+            <div class="risk-card-top">
+              <div class="risk-icon-box risk-icon-medium">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+              </div>
+              <div class="risk-card-titles">
+                <span class="risk-clause-name">Discretionary Stipend</span>
+                <span class="risk-badge badge-medium">Medium Risk</span>
+              </div>
+            </div>
+            <p class="risk-explanation">The company can reduce or withhold your ₹8,000 stipend based on performance metrics they define. No objective criteria are provided, leaving you vulnerable.</p>
+            <div class="risk-impact-row">
+              <div class="risk-meta-item">
+                <span class="risk-meta-label">Possible Impact</span>
+                <span class="risk-meta-value risk-meta-warning">Financial uncertainty</span>
+              </div>
+              <div class="risk-meta-item">
+                <span class="risk-meta-label">Clause Location</span>
+                <span class="risk-meta-value">Section 2</span>
+              </div>
+            </div>
+            <div class="risk-action-box">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span><strong>Suggested:</strong> Request stipend to be fixed and non-revisable, or ask for objective performance criteria in writing.</span>
+            </div>
+          </div>
+
+          <!-- Risk Card 7 -->
+          <div class="risk-card" data-risk="medium">
+            <div class="risk-card-top">
+              <div class="risk-icon-box risk-icon-medium">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                </svg>
+              </div>
+              <div class="risk-card-titles">
+                <span class="risk-clause-name">Conditional Certificate</span>
+                <span class="risk-badge badge-medium">Medium Risk</span>
+              </div>
+            </div>
+            <p class="risk-explanation">Your experience certificate depends on "satisfactory performance" as judged entirely by the company. It can take up to 45 business days (nearly 2 months), which may affect job applications.</p>
+            <div class="risk-impact-row">
+              <div class="risk-meta-item">
+                <span class="risk-meta-label">Possible Impact</span>
+                <span class="risk-meta-value risk-meta-warning">Delayed job applications</span>
+              </div>
+              <div class="risk-meta-item">
+                <span class="risk-meta-label">Clause Location</span>
+                <span class="risk-meta-value">Section 8</span>
+              </div>
+            </div>
+            <div class="risk-action-box">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span><strong>Suggested:</strong> Request the timeline be reduced to 15 business days and clarify the definition of "satisfactory performance."</span>
+            </div>
+          </div>
+
+        </div><!-- /risks-grid -->
+      </section>
+
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- NEGOTIATION ASSISTANT                             -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <section class="negotiation-section">
+        <div class="negotiation-card">
+          <div class="negotiation-header">
+            <div>
+              <div class="section-tag-sm">AI Negotiation Assistant</div>
+              <h2 class="negotiation-title">Suggested Message to HR</h2>
+              <p class="negotiation-subtitle">Copy and send this professionally drafted message to negotiate better terms before signing.</p>
+            </div>
+            <div class="negotiation-tabs">
+              <button class="neg-tab active" data-tab="email">Email Draft</button>
+              <button class="neg-tab" data-tab="whatsapp">WhatsApp</button>
+            </div>
+          </div>
+
+          <!-- Email draft -->
+          <div class="neg-message-box" id="negEmail">
+            <div class="neg-message-content" id="negEmailContent">Subject: Internship Offer — Clarification on Terms Before Signing
+
+Dear HR Team / [Hiring Manager's Name],
+
+Thank you for extending this internship offer at TechCorp Solutions. I am genuinely excited about this opportunity and look forward to contributing to the team.
+
+Before I sign, I would like to respectfully raise a few questions and suggest minor revisions that would help me feel more confident about the agreement:
+
+1. Overtime Compensation (Section 3): Could we add a provision for compensatory leave or additional pay when weekend/holiday work is required?
+
+2. Intellectual Property (Section 5): I would appreciate a carve-out for personal projects that are unrelated to the Company's business and developed using my own resources outside of working hours.
+
+3. Non-Compete Clause (Section 6): The 12-month non-compete across all of India seems broad for a student internship. Could this be revised to 3 months and limited to direct competitors only?
+
+4. Confidentiality Duration (Section 4): Could we specify a time limit (e.g., 2 years) and define what constitutes "confidential information"?
+
+5. Notice Period (Section 7): Could both parties be held to equal notice periods of 14 days?
+
+I believe these are reasonable requests and I remain very excited about the role. Please let me know if we can discuss these points.
+
+Warm regards,
+Arjun Mehta
+[Your Phone Number]</div>
+          </div>
+
+          <!-- WhatsApp draft (hidden by default) -->
+          <div class="neg-message-box hidden" id="negWhatsapp">
+            <div class="neg-message-content" id="negWhatsappContent">Hi [HR Name] 👋
+
+Thanks for the internship offer at TechCorp! Really excited about it 😊
+
+Before I sign, I had a few quick questions about some clauses:
+
+1️⃣ *Overtime (Sec 3)* — Is there any comp-off or extra pay for weekend work?
+
+2️⃣ *IP Ownership (Sec 5)* — Can personal projects be excluded if they're unrelated to the company?
+
+3️⃣ *Non-Compete (Sec 6)* — 12 months feels long for a student. Can we make it 3 months + direct competitors only?
+
+4️⃣ *Notice Period (Sec 7)* — Can we keep it equal at 14 days for both?
+
+Would love to sort these out quickly — looking forward to joining the team! 🙏</div>
+          </div>
+
+          <div class="negotiation-actions">
+            <button class="btn-copy-msg" id="btnCopyMsg">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+              <span id="copyBtnLabel">Copy Message</span>
+            </button>
+            <button class="btn-regenerate" id="btnRegenerate">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+              </svg>
+              Regenerate
+            </button>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ══════════════════════════════════════════════════ -->
+      <!-- LEGAL TERMS GLOSSARY                              -->
+      <!-- ══════════════════════════════════════════════════ -->
+      <section class="legal-terms-section">
+        <div class="legal-terms-header">
+          <div class="section-tag-sm">Legal Glossary</div>
+          <h2 class="legal-terms-title">Key Legal Terms Explained</h2>
+          <p class="legal-terms-subtitle">Plain-English definitions for terms used in this document.</p>
+        </div>
+        <div class="legal-terms-grid">
+
+          <div class="legal-term-card">
+            <div class="term-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+            <h3 class="term-name">Non-Compete Clause</h3>
+            <p class="term-def">A clause that restricts you from working at competitor companies for a set period after leaving. Can limit your career options significantly.</p>
+            <button class="btn-learn-more">Learn More →</button>
+          </div>
+
+          <div class="legal-term-card">
+            <div class="term-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/>
+              </svg>
+            </div>
+            <h3 class="term-name">Intellectual Property (IP)</h3>
+            <p class="term-def">Legal ownership of your creative work — code, designs, inventions. An IP clause can transfer ownership of your creations to the company.</p>
+            <button class="btn-learn-more">Learn More →</button>
+          </div>
+
+          <div class="legal-term-card">
+            <div class="term-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
+            <h3 class="term-name">Confidentiality (NDA)</h3>
+            <p class="term-def">An agreement to keep business information private. Broad or indefinite NDAs can prevent you from freely discussing your experience.</p>
+            <button class="btn-learn-more">Learn More →</button>
+          </div>
+
+          <div class="legal-term-card">
+            <div class="term-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <h3 class="term-name">Notice Period</h3>
+            <p class="term-def">The time you or the employer must give before ending an agreement. Unequal notice periods favour the employer and disadvantage you.</p>
+            <button class="btn-learn-more">Learn More →</button>
+          </div>
+
+          <div class="legal-term-card">
+            <div class="term-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <h3 class="term-name">Stipend Deduction</h3>
+            <p class="term-def">Withholding or reducing your pay. A "discretionary" deduction clause gives the company unchecked power over your compensation.</p>
+            <button class="btn-learn-more">Learn More →</button>
+          </div>
+
+          <div class="legal-term-card">
+            <div class="term-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 class="term-name">Governing Law</h3>
+            <p class="term-def">The legal jurisdiction that applies to the contract. Disputes must be resolved in that city's courts — which may be far from where you live.</p>
+            <button class="btn-learn-more">Learn More →</button>
+          </div>
+
+        </div>
+      </section>
+
+    </div><!-- /results-container -->
+
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- BOTTOM ACTION BAR                                 -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="bottom-action-bar">
+      <div class="bottom-action-inner">
+        <p class="bottom-risk-summary">
+          <span class="bottom-risk-pill">4 High Risks</span>
+          <span class="bottom-sep">·</span>
+          3 Medium Risks
+          <span class="bottom-sep">·</span>
+          Risk Score: <strong>74/100</strong>
+        </p>
+        <div class="bottom-actions">
+          <a href="upload.html" class="btn-bottom-secondary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+            New Analysis
+          </a>
+          <button class="btn-bottom-secondary" id="btnSaveAnalysis">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+              <polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/>
+            </svg>
+            Save Analysis
+          </button>
+          <button class="btn-bottom-secondary" id="btnShareReport">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+            </svg>
+            Share Report
+          </button>
+          <button class="btn-bottom-primary" id="btnDownloadPDF">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download PDF Report
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </main><!-- /results-main -->
+
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- CLAUSE DETAIL SIDE PANEL                              -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="clause-panel-overlay" id="clausePanelOverlay" aria-hidden="true"></div>
+  <aside class="clause-panel" id="clausePanel" aria-label="Clause details" aria-hidden="true">
+    <div class="clause-panel-header">
+      <div>
+        <span class="clause-panel-label" id="panelLabel">Clause Detail</span>
+        <h3 class="clause-panel-title" id="panelTitle">Clause Title</h3>
+      </div>
+      <button class="clause-panel-close" id="clausePanelClose" aria-label="Close panel">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="clause-panel-body">
+      <div class="panel-risk-row" id="panelRiskRow">
+        <span class="risk-badge" id="panelRiskBadge">High Risk</span>
+        <span class="panel-section-ref" id="panelSectionRef">Section 3</span>
+      </div>
+      <div class="panel-block">
+        <h4 class="panel-block-title">Why It Matters</h4>
+        <p class="panel-block-text" id="panelWhyText"></p>
+      </div>
+      <div class="panel-block">
+        <h4 class="panel-block-title">Possible Impact</h4>
+        <p class="panel-block-text" id="panelImpactText"></p>
+      </div>
+      <div class="panel-block">
+        <h4 class="panel-block-title">Recommended Action</h4>
+        <div class="panel-action-box" id="panelActionText"></div>
+      </div>
+    </div>
+  </aside>
+
+  <script src="results.js"></script>
+</body>
+</html>

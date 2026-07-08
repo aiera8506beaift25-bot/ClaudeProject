@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ClauseWise uses AI to simplify legal documents, agreements, and contracts into clear, student-friendly explanations before you sign.">
+  <title>ClauseWise - Read Less. Understand More. Sign Smarter.</title>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Sticky Glassmorphic Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="navbar-container">
+      <a href="#" class="logo-area">
+        <svg class="logo-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2" />
+          <path d="M7 8H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <path d="M7 12H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <path d="M7 16H13" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <circle cx="16" cy="16" r="2.5" fill="currentColor" />
+        </svg>
+        <span class="logo-text">ClauseWise</span>
+      </a>
+      
+      <nav class="nav-links">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#documents" class="nav-link">Documents</a>
+        <a href="#upload-section" class="nav-link">Demo</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      
+      <div class="nav-actions">
+        <a href="#signin" class="btn-signin">Sign In</a>
+        <a href="upload.html" class="btn-getstarted" id="btnGetStarted">Get Started</a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-nav-toggle" aria-label="Toggle menu" id="hamburger">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Overlay -->
+  <div class="mobile-nav-overlay" id="mobileNav">
+    <nav class="mobile-nav-links">
+      <a href="#features" class="mobile-link">Features</a>
+      <a href="#how-it-works" class="mobile-link">How It Works</a>
+      <a href="#documents" class="mobile-link">Documents</a>
+      <a href="#demo" class="mobile-link">Demo</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+      <div class="mobile-nav-actions">
+        <a href="#signin" class="btn-signin-mobile">Sign In</a>
+          <a href="upload.html" class="btn-getstarted-mobile" id="btnGetStartedMobile">Get Started</a>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-container">
+        <!-- Hero Left Content -->
+        <div class="hero-content">
+          <div class="pill-badge">
+            <svg class="badge-icon-logo" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+            </svg>
+            AI Legal Intelligence
+          </div>
+          
+          <h1 class="hero-heading">
+            Read Less.<br>
+            Understand More.<br>
+            <span class="text-gradient">Sign Smarter.</span>
+          </h1>
+          
+          <p class="hero-supporting">
+            ClauseWise helps students understand legal documents using AI. Upload your agreement and receive risk analysis, plain-English explanations, and negotiation suggestions before signing.
+          </p>
+          
+          <div class="hero-ctas">
+            <a href="upload.html" class="btn-primary">Analyze Document</a>
+            <a href="#demo" class="btn-secondary" id="btnPlayDemo">
+              <svg class="icon-play" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5V19L19 12L8 5Z" />
+              </svg>
+              Watch Demo
+            </a>
+          </div>
+          
+          <div class="hero-badges">
+            <div class="badge-item">
+              <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Student Friendly</span>
+            </div>
+            <div class="badge-item">
+              <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>AI Powered</span>
+            </div>
+            <div class="badge-item">
+              <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Under 10 Seconds</span>
+            </div>
+            <div class="badge-item">
+              <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Privacy First</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Right Content (Floating Glassmorphic Interactive Dashboard Mockup) -->
+        <div class="hero-graphic" id="dashboardWrapper">
+          <div class="dashboard-mockup glass-card">
+            
+            <!-- Dashboard Top Bar -->
+            <div class="mockup-header">
+              <div class="mockup-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="mockup-title">
+                <svg class="panel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+                <span>Internship_Offer.pdf</span>
+              </div>
+              <div class="live-status-indicator">
+                <span class="pulse-dot"></span>
+                <span>Live Analysis</span>
+              </div>
+            </div>
+
+            <!-- Dashboard Body -->
+            <div class="mockup-body">
+              
+              <!-- Left Sidebar: Progress Timeline -->
+              <div class="mockup-sidebar">
+                <div class="sidebar-header">Analysis Process</div>
+                <ul class="timeline-steps">
+                  <li class="timeline-step completed">
+                    <span class="step-check">✓</span>
+                    <span class="step-text">Reading Document</span>
+                  </li>
+                  <li class="timeline-step completed">
+                    <span class="step-check">✓</span>
+                    <span class="step-text">OCR Extraction</span>
+                  </li>
+                  <li class="timeline-step active">
+                    <span class="step-bullet">●</span>
+                    <span class="step-text">AI Analysis</span>
+                  </li>
+                  <li class="timeline-step">
+                    <span class="step-bullet"></span>
+                    <span class="step-text">Finding Clauses</span>
+                  </li>
+                  <li class="timeline-step">
+                    <span class="step-bullet"></span>
+                    <span class="step-text">Risk Detection</span>
+                  </li>
+                  <li class="timeline-step">
+                    <span class="step-bullet"></span>
+                    <span class="step-text">Plain English Summary</span>
+                  </li>
+                  <li class="timeline-step">
+                    <span class="step-bullet"></span>
+                    <span class="step-text">Negotiation Suggestions</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Center Panel: Contract Document Preview -->
+              <div class="mockup-doc-viewer" id="mockupDocViewer">
+                <div class="doc-panel-header">Contract Preview</div>
+                
+                <!-- Simulated Upload Overlay -->
+                <div class="mockup-upload-overlay" id="mockupUploadOverlay">
+                  <div class="upload-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="36" height="36" style="color:var(--color-brand-accent)">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                      <polyline points="14 2 14 8 20 8"></polyline>
+                      <line x1="12" y1="18" x2="12" y2="12"></line>
+                      <polyline points="9 15 12 12 15 15"></polyline>
+                    </svg>
+                    <span class="upload-filename">Internship_Offer.pdf</span>
+                    <span class="upload-status-text" id="uploadStatusText">Uploading...</span>
+                    <div class="upload-progress-container">
+                      <div class="upload-progress-fill" id="uploadProgressFill"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Laser Scan Line -->
+                <div class="scan-laser" id="scanLaser"></div>
+
+                <div class="doc-scroller skeleton-blurred" id="mockupDocContent">
+                  <h4>INTERNSHIP AGREEMENT</h4>
+                  <p>This Internship Agreement (the "Agreement") is entered into as of the date of acceptance, by and between the Host Company and the Intern.</p>
+                  
+                  <p><b>1. TERM & SCHEDULE</b><br>
+                  The internship engagement will commence on August 1st and will continue for a term of three (3) months.</p>
+                  
+                  <p><b>2. TERMINATION & NOTICE</b><br>
+                  <span class="highlighted-clause danger pulsing-highlight" id="clauseA">Either party may terminate this agreement at any time. However, the Intern shall provide a minimum of ninety (90) days notice period prior to early resignation.</span> Failure to provide ninety days notice will forfeit stipend milestones.</p>
+                  
+                  <p><b>3. RENEWAL</b><br>
+                  <span class="highlighted-clause warning pulsing-highlight" id="clauseB">This internship is subject to automatic renewal at the end of the term for another three months under identical terms, unless notification is given.</span></p>
+                  
+                  <p><b>4. STIPEND REFUND</b><br>
+                  <span class="highlighted-clause success pulsing-highlight" id="clauseC">The Intern is entitled to a full refund of any travel expenses within thirty (30) days of expense submission.</span></p>
+                </div>
+              </div>
+
+              <!-- Right Panel: AI Results -->
+              <div class="mockup-analysis-sidebar" id="mockupSidebarRight">
+                
+                <!-- Risk Gauge -->
+                <div class="analysis-widget risk-score-card">
+                  <div class="widget-header">Risk Index</div>
+                  <div class="gauge-container">
+                    <svg class="gauge-svg" viewBox="0 0 100 50">
+                      <path class="gauge-bg" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke-width="6" stroke-linecap="round" />
+                      <path class="gauge-fill risk-medium-stroke" id="mockupGaugeFill" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke-width="6" stroke-linecap="round" stroke-dasharray="125.6" stroke-dashoffset="125.6" />
+                    </svg>
+                    <div class="gauge-val" id="mockupGaugeVal">0 <span class="max-val">/100</span></div>
+                    <div class="risk-label danger-text" id="mockupRiskLabel">Calculating...</div>
+                  </div>
+                </div>
+
+                <!-- Typewriter Summary -->
+                <div class="analysis-widget summary-card">
+                  <div class="widget-header">Plain English Summary</div>
+                  <div class="summary-text-container">
+                    <p class="summary-typewriter" id="mockupSummaryText"><span class="typewriter-cursor">|</span></p>
+                  </div>
+                </div>
+
+                <!-- Suggestion Card -->
+                <div class="analysis-widget advice-card" id="mockupAdviceCard" style="opacity:0; transform:translateY(20px); transition:all 0.5s ease;">
+                  <div class="widget-header">Suggested Response</div>
+                  <div class="suggestion-bubble">
+                    "Could we reduce the notice period from 90 days to 30 days?"
+                  </div>
+                  <button class="btn-whatsapp">Generate WhatsApp Reply</button>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Banner Section -->
+    <section class="stats-section" id="stats">
+      <div class="stats-container">
+        <div class="stat-item">
+          <div class="stat-number" data-target="72">0</div>
+          <div class="stat-label">Risk Severity Rate</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="15240">0</div>
+          <div class="stat-label">Files Analyzed</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="3800">0</div>
+          <div class="stat-label">Hours Saved</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="12900">0</div>
+          <div class="stat-label">Documents Verified</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: How ClauseWise Works -->
+    <section class="how-it-works-section" id="how-it-works">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-tag">Workflow</div>
+          <h2 class="section-title">How ClauseWise Works</h2>
+          <p class="section-subtitle">Get legal contract clarity in five simple progress checkpoints.</p>
+        </div>
+
+        <div class="how-it-works-grid">
+          <!-- Step 1 -->
+          <div class="how-card glass-card">
+            <div class="how-step-num">01</div>
+            <div class="how-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="how-icon">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+            </div>
+            <h3 class="how-title">Upload Document</h3>
+            <p class="how-description">Drag and drop your lease agreement, contract, or offer letter in PDF or image format.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="how-card glass-card">
+            <div class="how-step-num">02</div>
+            <div class="how-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="how-icon">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="9" y1="9" x2="15" y2="9"></line>
+                <line x1="9" y1="13" x2="15" y2="13"></line>
+                <line x1="9" y1="17" x2="13" y2="17"></line>
+              </svg>
+            </div>
+            <h3 class="how-title">OCR Extracts Text</h3>
+            <p class="how-description">Our advanced optical character reader automatically scans and processes characters into text.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="how-card glass-card">
+            <div class="how-step-num">03</div>
+            <div class="how-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="how-icon">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+            </div>
+            <h3 class="how-title">AI Detects Risks</h3>
+            <p class="how-description">Large language algorithms locate unfavorable termination, notice, or financial guidelines.</p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="how-card glass-card">
+            <div class="how-step-num">04</div>
+            <div class="how-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="how-icon">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+              </svg>
+            </div>
+            <h3 class="how-title">Understand in Plain English</h3>
+            <p class="how-description">Read clear, student-focused explanations alongside highlighted document clauses.</p>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="how-card glass-card">
+            <div class="how-step-num">05</div>
+            <div class="how-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="how-icon">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              </svg>
+            </div>
+            <h3 class="how-title">Negotiate Before Signing</h3>
+            <p class="how-description">Receive copyable suggestions or emails to send back to landlords or company managers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Built for Students -->
+    <section class="documents-section" id="documents">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-tag">Document Types</div>
+          <h2 class="section-title">Built for Students</h2>
+          <p class="section-subtitle">We clarify the most common agreements students face in college life.</p>
+        </div>
+
+        <div class="documents-grid">
+          <!-- PG Rental -->
+          <div class="document-card glass-card">
+            <div class="doc-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="doc-svg">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+            </div>
+            <h3>PG / Hostel Agreements</h3>
+            <p>Highlights security deposit refunds, lock-in periods, curfew restrictions, and utility bill clauses.</p>
+          </div>
+
+          <!-- Internship Offers -->
+          <div class="document-card glass-card">
+            <div class="doc-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="doc-svg">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+            </div>
+            <h3>Internship Offers</h3>
+            <p>Analyzes stipend payments, termination notice details, non-competes, and intellectual property ownership.</p>
+          </div>
+
+          <!-- Freelance Contracts -->
+          <div class="document-card glass-card">
+            <div class="doc-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="doc-svg">
+                <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+              </svg>
+            </div>
+            <h3>Freelance Contracts</h3>
+            <p>Protects your work schedule, milestone payment timelines, copyright transfers, and revision cycles.</p>
+          </div>
+
+          <!-- Campus Hackathons -->
+          <div class="document-card glass-card">
+            <div class="doc-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="doc-svg">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <h3>Campus Hackathons & IP Agreements</h3>
+            <p>Verifies project copyright, prize terms, code license policies, and event submission ownership.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Core Features -->
+    <section class="features-section" id="features">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-tag">Capability</div>
+          <h2 class="section-title">Core Features</h2>
+          <p class="section-subtitle">Advanced legal-tech utilities optimized for student contract processing.</p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Feature 1 -->
+          <div class="feature-card glass-card">
+            <div class="feature-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="feature-icon">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+            <h3 class="feature-title">AI Risk Analysis</h3>
+            <p class="feature-description">Automatically finds and highlights hidden lock-ins, penalties, or unfair termination clauses.</p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="feature-card glass-card">
+            <div class="feature-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="feature-icon">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Plain English Explanation</h3>
+            <p class="feature-description">Converts complicated legal terminology into clear, student-friendly sentences instantly.</p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="feature-card glass-card">
+            <div class="feature-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="feature-icon">
+                <path d="M16 16v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v1"></path>
+                <rect x="8" y="2" width="14" height="12" rx="2" ry="2"></rect>
+              </svg>
+            </div>
+            <h3 class="feature-title">Clause Comparison</h3>
+            <p class="feature-description">Compare guidelines side-by-side with market norms and other student contract templates.</p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="feature-card glass-card">
+            <div class="feature-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="feature-icon">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Negotiation Suggestions</h3>
+            <p class="feature-description">Get copyable, polite text templates or WhatsApp drafts to request clause revisions.</p>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="feature-card glass-card">
+            <div class="feature-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="feature-icon">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <h3 class="feature-title">Risk Score Dashboard</h3>
+            <p class="feature-description">View numerical risk ratings and indicators categorized by severity across your workspace.</p>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="feature-card glass-card">
+            <div class="feature-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="feature-icon">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+              </svg>
+            </div>
+            <h3 class="feature-title">OCR Support</h3>
+            <p class="feature-description">Scan printed paper leases or photos of offer agreements using automatic optical text parsing.</p>
+          </div>
+
+          <!-- Feature 7 -->
+          <div class="feature-card glass-card">
+            <div class="feature-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="feature-icon">
+                <path d="M12 8v4l3 3"></path>
+                <circle cx="12" cy="12" r="9"></circle>
+              </svg>
+            </div>
+            <h3 class="feature-title">Document History</h3>
+            <p class="feature-description">Retrieve past agreements, summaries, and recommendations directly from your dashboard.</p>
+          </div>
+
+          <!-- Feature 8 -->
+          <div class="feature-card glass-card">
+            <div class="feature-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="feature-icon">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Secure Storage</h3>
+            <p class="feature-description">Your uploaded legal documents remain private. Files are processed securely and deleted on demand.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Interactive Workspace Demo -->
+    <section class="playground-section" id="upload-section">
+      <div class="section-container">
+        <div class="playground-layout">
+          <div class="playground-info">
+            <div class="section-tag">Interactive Workspace</div>
+            <h2 class="section-title">See ClauseWise in Action</h2>
+            <p class="section-subtitle">Drag and drop your contract or select a category below to test the AI interface.</p>
+            
+            <div class="sample-pills">
+              <span>Category selection:</span>
+              <button class="pill-btn active" data-sample="internship">Internship Offer</button>
+              <button class="pill-btn" data-sample="hostel">PG Rental Lease</button>
+              <button class="pill-btn" data-sample="freelance">Freelance Contract</button>
+              <button class="pill-btn" data-sample="hackathon">Hackathon T&Cs</button>
+            </div>
+          </div>
+
+          <!-- File Upload Playground Dropzone -->
+          <div class="playground-dropzone-container">
+            <div class="dropzone" id="dropzone">
+              <div class="dropzone-unloaded" id="dropzoneUnloaded">
+                <div class="dropzone-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                  </svg>
+                </div>
+                <h4 class="dropzone-title">Drag & Drop your document</h4>
+                <p class="dropzone-text">PDF, DOCX, TXT, PNG, JPG (Max 15MB)</p>
+                <button class="btn-reset" style="margin-top:12px; pointer-events:none;">Choose File</button>
+                <input type="file" id="fileInput" class="hidden-file-input" accept=".pdf,.docx,.txt,image/*">
+              </div>
+
+              <div class="dropzone-loading hidden" id="dropzoneLoading">
+                <div class="spinner"></div>
+                <h4 class="loading-title" id="loadingStage">Uploading...</h4>
+                <p class="loading-text">Extracting definitions and calculating risk coefficients...</p>
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" id="progressBar"></div>
+                </div>
+              </div>
+
+              <div class="dropzone-success hidden" id="dropzoneSuccess">
+                <div class="success-header">
+                  <div class="success-badge">✓ Complete Analysis</div>
+                  <button class="btn-reset" id="btnReset">Upload Another</button>
+                </div>
+                <div class="success-content">
+                  <div class="result-headline">
+                    <span id="resultDocType">PG / Hostel Agreement</span>
+                    <span class="result-risk-indicator" id="resultRiskIndicator">55% Risk Score</span>
+                  </div>
+                  <div class="result-scroller" id="resultScroller">
+                    <!-- Injected via JavaScript -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="cta-banner" id="contact">
+      <div class="cta-container">
+        <h2 class="cta-title">Sign agreements with confidence.</h2>
+        <p class="cta-subtitle">ClauseWise helps you spot liabilities, simplify jargon, and protect your student assets.</p>
+        <div class="cta-buttons">
+          <a href="upload.html" class="btn-cta-primary">Analyze Document Now</a>
+          <a href="#how-it-works" class="btn-cta-secondary">Learn More</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="#" class="logo-area">
+          <svg class="logo-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2" />
+            <path d="M7 8H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M7 12H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <circle cx="16" cy="16" r="2" fill="currentColor" />
+          </svg>
+          <span class="logo-text">ClauseWise</span>
+        </a>
+        <p class="footer-tagline">Simplifying complex legal contracts for college students everywhere.</p>
+        <div style="font-size:12px; color:var(--color-text-light); margin-top:8px;">Powered by Claude AI</div>
+      </div>
+
+      <div class="footer-links-group">
+        <div class="footer-column">
+          <span class="footer-title">Product</span>
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#documents">Documents</a>
+        </div>
+        <div class="footer-column">
+          <span class="footer-title">Resources</span>
+          <a href="#demo">Demo</a>
+          <a href="#privacy">Privacy Policy</a>
+          <a href="#terms">Terms</a>
+        </div>
+        <div class="footer-column">
+          <span class="footer-title">Contact</span>
+          <a href="mailto:support@clausewise.ai">support@clausewise.ai</a>
+          <a href="#contact">Get Help</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 ClauseWise. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="https://github.com" target="_blank" aria-label="GitHub">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </a>
+        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- App Script -->
+  <script src="app.js"></script>
+</body>
+</html>
