@@ -1,0 +1,54 @@
+[
+  {
+    "title": "Automatic Renewal",
+    "keywords": [
+      "auto-renew",
+      "automatically renew",
+      "automatic renewal",
+      "renew automatically"
+    ],
+    "severity": "Medium",
+    "plainEnglish": "The contract may renew on its own unless you cancel in time.",
+    "counterClause": "Renewal should require explicit written consent from both parties.",
+    "negotiationTip": "Ask for a reminder notice before any automatic renewal."
+  },
+  {
+    "title": "Unilateral Changes",
+    "keywords": [
+      "may modify",
+      "reserve the right to change",
+      "at our sole discretion",
+      "without notice"
+    ],
+    "severity": "High",
+    "plainEnglish": "The other party can change the terms without your agreement.",
+    "counterClause": "Any changes must be agreed to in writing by both parties.",
+    "negotiationTip": "Require advance written notice for any term changes."
+  },
+  {
+    "title": "Limitation of Liability",
+    "keywords": [
+      "not liable",
+      "no liability",
+      "limitation of liability",
+      "as is"
+    ],
+    "severity": "Medium",
+    "plainEnglish": "The other party limits or removes their responsibility if something goes wrong.",
+    "counterClause": "Liability should cover direct damages caused by negligence.",
+    "negotiationTip": "Push for mutual and reasonable liability terms."
+  },
+  {
+    "title": "Broad Termination Rights",
+    "keywords": [
+      "terminate at any time",
+      "terminate immediately",
+      "without cause",
+      "without notice"
+    ],
+    "severity": "High",
+    "plainEnglish": "The other party can end the agreement whenever they want.",
+    "counterClause": "Termination should require reasonable written notice.",
+    "negotiationTip": "Ask for a fixed notice period before termination."
+  }
+]

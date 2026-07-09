@@ -1,0 +1,202 @@
+[
+  {
+    "title": "IP Ownership — Work for Hire",
+    "keywords": ["intellectual property", "work for hire", "all rights", "assign", "ownership"],
+    "severity": "Critical",
+    "plainEnglish": "The client owns everything you create, permanently and entirely.",
+    "counterClause": "IP transfers to the client only upon receipt of full payment.",
+    "negotiationTip": "Never transfer IP before being paid in full."
+  },
+  {
+    "title": "Unlimited Revisions",
+    "keywords": ["unlimited revisions", "until satisfied", "as many revisions", "revisions as needed"],
+    "severity": "Critical",
+    "plainEnglish": "You could be forced to revise your work indefinitely without additional pay.",
+    "counterClause": "This agreement includes up to 3 rounds of revisions. Additional revisions are billed at the hourly rate.",
+    "negotiationTip": "Always define a specific number of revision rounds before signing."
+  },
+  {
+    "title": "Scope Creep — Vague Deliverables",
+    "keywords": ["as required", "additional tasks", "other duties", "as requested", "at client's discretion"],
+    "severity": "High",
+    "plainEnglish": "The client can expand the project scope without paying you more.",
+    "counterClause": "Any work outside the agreed scope requires a written change order and additional payment.",
+    "negotiationTip": "Define deliverables with extreme specificity — vague language always benefits the client."
+  },
+  {
+    "title": "No Kill Fee",
+    "keywords": ["no kill fee", "cancel at any time", "no compensation on cancellation", "terminate without payment"],
+    "severity": "High",
+    "plainEnglish": "If the client cancels the project, you receive nothing for work already completed.",
+    "counterClause": "If the client terminates the project, all completed work to date shall be compensated in full.",
+    "negotiationTip": "Always include a kill fee of at least 25–50% of the total project value."
+  },
+  {
+    "title": "Delayed Payment Terms",
+    "keywords": ["net 60", "net 90", "payment upon approval", "upon final delivery", "at client's discretion"],
+    "severity": "High",
+    "plainEnglish": "You may have to wait 60–90 days to receive payment after completing the work.",
+    "counterClause": "Payment is due within 14 days of invoice. Late payments accrue 1.5% interest per month.",
+    "negotiationTip": "Request Net 14 or Net 30 terms and add a late fee clause."
+  },
+  {
+    "title": "Non-Compete Clause",
+    "keywords": ["non-compete", "competing clients", "similar industry", "restrict", "prohibited"],
+    "severity": "High",
+    "plainEnglish": "You may be barred from working with other clients in the same industry.",
+    "counterClause": "Non-compete applies only to direct competitors and expires 30 days after project completion.",
+    "negotiationTip": "A broad non-compete can cripple your income — limit its scope and duration."
+  },
+  {
+    "title": "Broad Confidentiality",
+    "keywords": ["confidential", "non-disclosure", "trade secret", "proprietary", "disclose"],
+    "severity": "High",
+    "plainEnglish": "You cannot share or reference the work in your portfolio without written permission.",
+    "counterClause": "Freelancer may display the completed work in their portfolio unless the client opts out in writing.",
+    "negotiationTip": "Negotiate explicit portfolio rights before signing."
+  },
+  {
+    "title": "Client Can Reject Work Without Reason",
+    "keywords": ["sole discretion", "reject", "not approved", "unsatisfactory", "final decision"],
+    "severity": "High",
+    "plainEnglish": "The client can reject your work and refuse payment without giving a reason.",
+    "counterClause": "Work rejection must be accompanied by specific written feedback. Freelancer has the right to revise.",
+    "negotiationTip": "Define objective acceptance criteria for all deliverables."
+  },
+  {
+    "title": "Indemnification",
+    "keywords": ["indemnify", "hold harmless", "liable", "legal costs", "damages"],
+    "severity": "High",
+    "plainEnglish": "You could be held personally responsible for any legal claims arising from the project.",
+    "counterClause": "Indemnification is limited to claims arising directly from the freelancer's gross negligence.",
+    "negotiationTip": "Request that indemnification be mutual and capped at the contract value."
+  },
+  {
+    "title": "Mandatory Arbitration",
+    "keywords": ["arbitration", "binding arbitration", "waive right to sue", "dispute resolution"],
+    "severity": "High",
+    "plainEnglish": "You waive the right to sue in court. All disputes must go through private arbitration.",
+    "counterClause": "Either party retains the right to pursue claims in a court of competent jurisdiction.",
+    "negotiationTip": "Mandatory arbitration heavily favours well-resourced clients — try to remove it."
+  },
+  {
+    "title": "Termination for Convenience",
+    "keywords": ["terminate for convenience", "terminate at any time", "no reason required"],
+    "severity": "High",
+    "plainEnglish": "The client can end the contract at any point without cause and potentially without full payment.",
+    "counterClause": "Termination for convenience requires 14 days notice and payment for all work completed to date.",
+    "negotiationTip": "Always pair a termination clause with a kill fee and notice period."
+  },
+  {
+    "title": "No Portfolio Usage",
+    "keywords": ["portfolio", "showcase", "display", "credit", "attribution", "not permitted"],
+    "severity": "Medium",
+    "plainEnglish": "You cannot show this work to future clients even after the project is complete.",
+    "counterClause": "Freelancer may include completed work in their portfolio after the client's public launch.",
+    "negotiationTip": "Negotiate a 6-month waiting period after launch rather than a permanent ban."
+  },
+  {
+    "title": "Payment Contingent on Approval",
+    "keywords": ["upon approval", "subject to acceptance", "conditional payment", "satisfactory"],
+    "severity": "High",
+    "plainEnglish": "You only get paid if the client approves the work — giving them full control over payment.",
+    "counterClause": "Payment is due upon delivery. Disputes must be raised within 5 business days of delivery.",
+    "negotiationTip": "Always request a deposit and milestone-based payments."
+  },
+  {
+    "title": "Exclusivity Clause",
+    "keywords": ["exclusive", "solely", "only for client", "no other clients", "devote full time"],
+    "severity": "High",
+    "plainEnglish": "You cannot take on other clients while working on this project.",
+    "counterClause": "This agreement is non-exclusive. Freelancer may work with other clients simultaneously.",
+    "negotiationTip": "Exclusivity should come with a premium rate to compensate for lost earnings."
+  },
+  {
+    "title": "Unilateral Contract Modification",
+    "keywords": ["reserves the right", "modify", "change terms", "at any time", "sole discretion"],
+    "severity": "High",
+    "plainEnglish": "The client can change the contract terms without your agreement.",
+    "counterClause": "Any amendments require written consent from both parties.",
+    "negotiationTip": "This clause is a red flag — request its complete removal."
+  },
+  {
+    "title": "Non-Solicitation Clause",
+    "keywords": ["non-solicitation", "solicit", "approach", "recruit", "poach"],
+    "severity": "Medium",
+    "plainEnglish": "You cannot approach the client's employees or other clients for business.",
+    "counterClause": "Non-solicitation applies only to direct employees and expires 6 months after project completion.",
+    "negotiationTip": "Request a shorter duration and narrower definition of who is covered."
+  },
+  {
+    "title": "Automatic Renewal",
+    "keywords": ["auto-renew", "automatic renewal", "rollover", "unless terminated"],
+    "severity": "Medium",
+    "plainEnglish": "The contract will automatically continue unless you explicitly cancel it.",
+    "counterClause": "Renewal requires written agreement from both parties at least 14 days before expiry.",
+    "negotiationTip": "Set a calendar reminder before the renewal window closes."
+  },
+  {
+    "title": "Late Payment — No Penalty for Client",
+    "keywords": ["no interest", "no late fee", "no penalty", "payment at convenience"],
+    "severity": "Medium",
+    "plainEnglish": "The client faces no consequences for paying you late.",
+    "counterClause": "Payments not received within 14 days of the due date accrue 1.5% monthly interest.",
+    "negotiationTip": "Always include a late payment penalty to incentivise timely payment."
+  },
+  {
+    "title": "Expenses Not Reimbursed",
+    "keywords": ["at own expense", "no reimbursement", "contractor responsible", "tools and equipment"],
+    "severity": "Medium",
+    "plainEnglish": "You must cover all project-related expenses yourself — software, tools, subscriptions.",
+    "counterClause": "Pre-approved project expenses shall be reimbursed within 14 days with receipts.",
+    "negotiationTip": "List all anticipated expenses upfront and get reimbursement agreed in writing."
+  },
+  {
+    "title": "Background Rights Retained by Client",
+    "keywords": ["background IP", "pre-existing IP", "prior work", "retained by client"],
+    "severity": "Medium",
+    "plainEnglish": "Any pre-existing tools or frameworks you bring to the project may be claimed by the client.",
+    "counterClause": "Freelancer retains all rights to pre-existing IP, tools, and frameworks used in the project.",
+    "negotiationTip": "Document all pre-existing assets before the project starts."
+  },
+  {
+    "title": "Governing Law — Unfavourable Jurisdiction",
+    "keywords": ["governing law", "jurisdiction", "courts of", "applicable law"],
+    "severity": "Low",
+    "plainEnglish": "Disputes must be resolved in the client's jurisdiction, which may be inconvenient or costly for you.",
+    "counterClause": "This agreement shall be governed by the laws of the freelancer's country of residence.",
+    "negotiationTip": "Negotiate for your own jurisdiction or a neutral one."
+  },
+  {
+    "title": "No Credit or Attribution",
+    "keywords": ["no credit", "anonymous", "no attribution", "work-for-hire", "ghost"],
+    "severity": "Low",
+    "plainEnglish": "Your name will not appear on work you created.",
+    "counterClause": "Freelancer retains the right to attribution unless the client opts out in writing.",
+    "negotiationTip": "Attribution costs the client nothing — always ask for it."
+  },
+  {
+    "title": "Force Majeure Favours Client",
+    "keywords": ["force majeure", "not liable", "cancel without compensation", "act of god"],
+    "severity": "Low",
+    "plainEnglish": "The client can cancel during unforeseen events without paying you for work done.",
+    "counterClause": "Force majeure events suspend obligations for both parties equally. Work completed to date shall be paid.",
+    "negotiationTip": "Ensure force majeure is mutual and includes payment for work already completed."
+  },
+  {
+    "title": "Warranty and Guarantee Clause",
+    "keywords": ["warrant", "guarantee", "representations", "error-free", "merchantability"],
+    "severity": "Medium",
+    "plainEnglish": "You are making legal warranties about the quality of your work that could expose you to liability.",
+    "counterClause": "Services are provided as-is. Freelancer will correct defects identified within 14 days of delivery.",
+    "negotiationTip": "Limit warranty periods to a specific window — avoid open-ended guarantees."
+  },
+  {
+    "title": "Entire Agreement Clause",
+    "keywords": ["entire agreement", "supersedes", "no prior representations"],
+    "severity": "Low",
+    "plainEnglish": "Only the written contract counts. Any verbal promises are unenforceable.",
+    "counterClause": "All material commitments made during negotiations must be incorporated into this agreement.",
+    "negotiationTip": "Get every important promise documented before signing."
+  }
+]
