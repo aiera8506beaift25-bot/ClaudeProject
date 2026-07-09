@@ -6,15 +6,28 @@ const analyzeRoute = require("./routes/analyze");
 
 const app = express();
 
+// Allow requests from local dev and any Vercel deployment.
+// Set ALLOWED_ORIGIN env var on Koyeb to your exact Vercel URL.
+const ALLOWED_ORIGINS = [
+  "http://localhost:3000",
+  "http://127.0.0.1:3000",
+  process.env.ALLOWED_ORIGIN, // e.g. https://your-app.vercel.app
+].filter(Boolean);
+
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://127.0.0.1:3000"],
+    origin: (origin, callback) => {
+      // Allow requests with no origin (curl, Postman, server-to-server)
+      if (!origin) return callback(null, true);
+      if (ALLOWED_ORIGINS.includes(origin)) return callback(null, true);
+      callback(new Error(`CORS: origin ${origin} not allowed`));
+    },
     methods: ["GET", "POST"],
   }),
 );
+
 app.use(express.json());
 
-// Log every incoming request
 app.use((req, res, next) => {
   console.log("Incoming:", req.method, req.url);
   next();
@@ -35,21 +48,20 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 5000;
+const IS_PROD = process.env.NODE_ENV === "production";
 
-// exclusive: true forces a hard EADDRINUSE instead of Windows silently
-// letting a second process "share" the port and serve stale code.
-const server = app.listen({ port: PORT, exclusive: true }, () => {
+// In production (Koyeb) don't use exclusive mode — the platform manages ports.
+const listenOptions = IS_PROD ? PORT : { port: PORT, exclusive: true };
+
+const server = app.listen(listenOptions, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
 server.on("error", (err) => {
   if (err.code === "EADDRINUSE") {
     console.error(
-      `\n Port ${PORT} is already in use by another (stale) process.` +
-        `\n   That old process is still serving requests with OLD code, so your` +
-        `\n   edits won't take effect and /analyze may appear to hang.` +
-        `\n   Kill it first, e.g.:  npx kill-port ${PORT}` +
-        `\n   or: netstat -ano | findstr :${PORT}  then  taskkill /F /PID <pid>\n`,
+      `\n Port ${PORT} is already in use.` +
+        `\n Kill it first:  npx kill-port ${PORT}\n`,
     );
   } else {
     console.error("Server failed to start:", err);
