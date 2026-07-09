@@ -1,0 +1,43 @@
+[
+  {
+    "title": "Intellectual Property Ownership",
+    "keywords": [
+      "intellectual property",
+      "assign",
+      "ownership",
+      "invention",
+      "copyright"
+    ],
+    "severity": "Critical",
+    "plainEnglish": "The company may own everything you create during the internship.",
+    "counterClause": "Ownership applies only to work created as part of the internship.",
+    "negotiationTip": "Ensure personal projects remain your property."
+  },
+
+  {
+    "title": "Unpaid Overtime",
+    "keywords": [
+      "overtime",
+      "additional hours",
+      "without compensation",
+      "extra working hours"
+    ],
+    "severity": "High",
+    "plainEnglish": "You may be required to work extra hours without additional pay.",
+    "counterClause": "Any overtime should be compensated or mutually agreed.",
+    "negotiationTip": "Ask for a maximum weekly working hour limit."
+  },
+
+  {
+    "title": "Immediate Termination",
+    "keywords": [
+      "terminate immediately",
+      "without notice",
+      "at any time"
+    ],
+    "severity": "High",
+    "plainEnglish": "The employer can end your internship without warning.",
+    "counterClause": "Require at least seven days' notice before termination.",
+    "negotiationTip": "Ask for written notice before termination."
+  }
+]
