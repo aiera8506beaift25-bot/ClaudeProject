@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: clausewise-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: NODE_ENV
+        value: production
+      - key: GROQ_API_KEY
+        sync: false # you enter this manually in Render dashboard
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
+      - key: ALLOWED_ORIGIN
+        sync: false # set this to your Vercel URL after frontend deploy
+    healthCheckPath: /
