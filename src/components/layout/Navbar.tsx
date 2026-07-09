@@ -3,43 +3,53 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 
+const NAV_LINKS = [
+  { label: 'Features', href: '#features' },
+  { label: 'How It Works', href: '#how-it-works' },
+  { label: 'Documents', href: '#documents' },
+  { label: 'Demo', href: '#upload-section' },
+  { label: 'Contact', href: '#contact' },
+]
+
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isMobileOpen, setIsMobileOpen] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
+    const onScroll = () => setIsScrolled(window.scrollY > 50)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const navLinks = [
-    { label: 'Features', href: '#features' },
-    { label: 'How It Works', href: '#how-it-works' },
-    { label: 'Documents', href: '#documents' },
-    { label: 'Demo', href: '#upload-section' },
-    { label: 'Contact', href: '#contact' },
-  ]
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = isMobileOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [isMobileOpen])
+
+  const closeMobile = () => setIsMobileOpen(false)
 
   return (
     <>
+      {/* ── Pill Navbar ───────────────────────────────────────── */}
       <header
-        className={`fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-32px)] max-w-[1280px] h-16 z-[1000] rounded-full border transition-smooth ${
-          isScrolled
-            ? 'top-2 bg-[rgba(9,9,9,0.95)] border-[#27272A] shadow-lg'
-            : 'bg-[rgba(9,9,9,0.75)] border-[#27272A] backdrop-blur-xl'
-        }`}
+        className={`fixed z-[1000] left-1/2 -translate-x-1/2 w-[calc(100%-32px)] max-w-[1280px] h-16 rounded-full border transition-all duration-300
+          ${isScrolled
+            ? 'top-2 bg-[rgba(9,9,9,0.95)] border-[rgba(255,255,255,0.16)] shadow-[0_10px_30px_rgba(0,0,0,0.6)]'
+            : 'top-4 bg-[rgba(9,9,9,0.75)] border-[rgba(255,255,255,0.08)] backdrop-blur-xl'
+          }`}
       >
         <div className="h-full px-6 flex items-center justify-between">
+
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2 text-[#FAFAFA] font-bold text-xl hover:opacity-80 transition-opacity duration-200"
+            className="flex items-center gap-2.5 font-bold text-[20px] tracking-[-0.5px] text-white hover:opacity-80 transition-opacity duration-200 group"
           >
-            <svg className="w-7 h-7 text-[#3B82F6] transition-transform duration-200 hover:rotate-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg
+              className="w-7 h-7 text-[#3B82F6] transition-transform duration-300 group-hover:rotate-12"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            >
               <rect x="3" y="3" width="18" height="18" rx="5" strokeWidth="2" />
               <path d="M7 8H17" strokeWidth="2" strokeLinecap="round" />
               <path d="M7 12H17" strokeWidth="2" strokeLinecap="round" />
@@ -49,75 +59,86 @@ export default function Navbar() {
             <span>ClauseWise</span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
+          {/* Desktop nav links */}
+          <nav className="hidden md:flex items-center gap-7">
+            {NAV_LINKS.map(link => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-[#A1A1AA] hover:text-[#FAFAFA] transition-colors duration-200"
+                className="relative text-sm font-medium text-[#A1A1AA] hover:text-white transition-colors duration-200 py-1.5 group"
               >
                 {link.label}
+                {/* Underline slide-in effect */}
+                <span
+                  className="absolute bottom-0 left-0 w-full h-[2px] bg-[#3B82F6] scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left transition-transform duration-300"
+                />
               </a>
             ))}
           </nav>
 
-          {/* Desktop Actions */}
-          <div className="hidden md:flex items-center gap-3">
-            <button className="text-sm font-medium text-[#A1A1AA] hover:text-[#FAFAFA] transition-colors duration-200 px-4 py-2">
-              Sign In
-            </button>
+          {/* Desktop actions */}
+          <div className="hidden md:flex items-center gap-4">
             <Link
-              href="/upload"
-              className="btn-primary text-sm h-10 px-6"
+              href="/signin"
+              className="text-sm font-medium text-white px-[18px] py-2.5 rounded-full transition-all duration-300 hover:bg-[rgba(255,255,255,0.05)]"
+              style={{ backgroundColor: '#3B82F6' }}
             >
-              Get Started
+              Sign In
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile hamburger */}
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden btn-icon"
+            onClick={() => setIsMobileOpen(prev => !prev)}
             aria-label="Toggle menu"
-            aria-expanded={isMobileMenuOpen}
+            aria-expanded={isMobileOpen}
+            className="md:hidden flex flex-col justify-between w-[22px] h-[16px] bg-transparent border-none cursor-pointer z-[1001]"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M4 6h16M4 12h16M4 18h16" strokeWidth="2" strokeLinecap="round" />
-            </svg>
+            <span
+              className={`block w-full h-[2px] bg-white transition-transform duration-300 origin-center
+                ${isMobileOpen ? 'translate-y-[7px] rotate-45' : ''}`}
+            />
+            <span
+              className={`block w-full h-[2px] bg-white transition-opacity duration-300
+                ${isMobileOpen ? 'opacity-0' : 'opacity-100'}`}
+            />
+            <span
+              className={`block w-full h-[2px] bg-white transition-transform duration-300 origin-center
+                ${isMobileOpen ? '-translate-y-[7px] -rotate-45' : ''}`}
+            />
           </button>
+
         </div>
       </header>
 
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="fixed inset-0 top-20 z-40 bg-[#09090B] border-t border-[#27272A] md:hidden">
-          <nav className="flex flex-col gap-4 p-6">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-[#FAFAFA] font-medium text-base body hover:text-[#3B82F6] transition-colors duration-200"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
-            <div className="border-t border-[#27272A] pt-4 mt-2 flex flex-col gap-3">
-              <button className="text-sm font-medium text-[#A1A1AA] hover:text-[#FAFAFA] transition-colors duration-200 px-4 py-2">
-                Sign In
-              </button>
-              <Link
-                href="/upload"
-                className="btn-primary text-sm w-full"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Get Started
-              </Link>
-            </div>
-          </nav>
-        </div>
-      )}
+      {/* ── Mobile fullscreen overlay ─────────────────────────── */}
+      <div
+        className={`fixed inset-0 z-[999] bg-[#090909] flex items-center justify-center transition-opacity duration-300
+          ${isMobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+      >
+        <nav className="flex flex-col items-center gap-6 text-center">
+          {NAV_LINKS.map(link => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={closeMobile}
+              className="text-xl font-semibold text-[#A1A1AA] hover:text-white transition-colors duration-200"
+            >
+              {link.label}
+            </a>
+          ))}
+          <div className="flex flex-col gap-4 mt-6 w-[200px]">
+            <Link
+              href="/signin"
+              onClick={closeMobile}
+              className="text-base font-medium text-white text-center py-3 px-6 rounded-full border border-[rgba(255,255,255,0.08)] transition-all duration-200 hover:bg-[rgba(255,255,255,0.05)]"
+              style={{ backgroundColor: '#3B82F6', borderColor: '#3B82F6' }}
+            >
+              Sign In
+            </Link>
+          </div>
+        </nav>
+      </div>
     </>
   )
 }
