@@ -1,37 +1,69 @@
+/**
+ * Detects the contract type from extracted text.
+ * Returns one of: "internship" | "housing" | "freelance" | "event" | "general"
+ */
 function detectContractType(text) {
   const lower = text.toLowerCase();
 
-  if (
-    lower.includes("internship") ||
-    lower.includes("stipend") ||
-    lower.includes("mentor")
-  ) {
-    return "internship";
+  const types = [
+    {
+      type: "internship",
+      keywords: ["internship", "stipend", "intern", "offer letter", "trainee"],
+    },
+    {
+      type: "housing",
+      keywords: [
+        "landlord",
+        "tenant",
+        "rent",
+        "lease",
+        "hostel",
+        "pg",
+        "paying guest",
+        "deposit",
+      ],
+    },
+    {
+      type: "freelance",
+      keywords: [
+        "freelancer",
+        "freelance",
+        "client",
+        "deliverable",
+        "milestone",
+        "invoice",
+      ],
+    },
+    {
+      type: "event",
+      keywords: [
+        "hackathon",
+        "competition",
+        "participant",
+        "organiser",
+        "organizer",
+        "prize",
+        "submission",
+      ],
+    },
+  ];
+
+  // Score each type by how many keywords match
+  let bestType = "general";
+  let bestScore = 0;
+
+  for (const { type, keywords } of types) {
+    const score = keywords.reduce(
+      (acc, kw) => acc + (lower.includes(kw) ? 1 : 0),
+      0,
+    );
+    if (score > bestScore) {
+      bestScore = score;
+      bestType = type;
+    }
   }
 
-  if (
-    lower.includes("landlord") ||
-    lower.includes("tenant") ||
-    lower.includes("rent")
-  ) {
-    return "housing";
-  }
-
-  if (
-    lower.includes("client") ||
-    lower.includes("freelancer")
-  ) {
-    return "freelance";
-  }
-
-  if (
-    lower.includes("hackathon") ||
-    lower.includes("competition")
-  ) {
-    return "event";
-  }
-
-  return "general";
+  return bestType;
 }
 
 module.exports = detectContractType;

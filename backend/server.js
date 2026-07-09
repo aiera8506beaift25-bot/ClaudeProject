@@ -1,4 +1,3 @@
-console.log("THIS IS MY SERVER");
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
@@ -7,7 +6,12 @@ const analyzeRoute = require("./routes/analyze");
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "http://127.0.0.1:3000"],
+    methods: ["GET", "POST"],
+  }),
+);
 app.use(express.json());
 
 // Log every incoming request
@@ -45,7 +49,7 @@ server.on("error", (err) => {
         `\n   That old process is still serving requests with OLD code, so your` +
         `\n   edits won't take effect and /analyze may appear to hang.` +
         `\n   Kill it first, e.g.:  npx kill-port ${PORT}` +
-        `\n   or: netstat -ano | findstr :${PORT}  then  taskkill /F /PID <pid>\n`
+        `\n   or: netstat -ano | findstr :${PORT}  then  taskkill /F /PID <pid>\n`,
     );
   } else {
     console.error("Server failed to start:", err);
