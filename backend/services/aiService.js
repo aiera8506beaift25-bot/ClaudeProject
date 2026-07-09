@@ -1,11 +1,12 @@
-const Anthropic = require("@anthropic-ai/sdk");
+const Groq = require("groq-sdk");
 
-const client = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
+const client = new Groq({
+  apiKey: process.env.GROQ_API_KEY,
 });
-
-// Configurable; defaults to a fast, low-cost model for the analysis pass.
-const MODEL = process.env.CLAUDE_MODEL || "claude-haiku-4-5-20251001";
+// 
+// llama-3.3-70b-versatile gives strong reasoning for legal analysis.
+// Can be overridden via GROQ_MODEL env var.
+const MODEL = process.env.GROQ_MODEL || "llama-3.3-70b-versatile";
 
 async function analyzeContract(text, prompt, ruleMatches) {
   const ruleContext =
@@ -13,34 +14,29 @@ async function analyzeContract(text, prompt, ruleMatches) {
       ? `\n\nRisky-clause patterns pre-detected by the rule engine (use as hints):\n${JSON.stringify(
           ruleMatches,
           null,
-          2
+          2,
         )}`
       : "";
 
-  const response = await client.messages.create(
-    {
-      model: MODEL,
-      max_tokens: 2048,
-      system: prompt,
-      messages: [
-        {
-          role: "user",
-          content: `Contract text:\n"""\n${text}\n"""${ruleContext}`,
-        },
-      ],
-    },
-    // Hard ceiling so a network stall can never hang the request forever.
-    { timeout: 60000 }
-  );
+  const response = await client.chat.completions.create({
+    model: MODEL,
+    max_tokens: 2048,
+    messages: [
+      {
+        role: "system",
+        content: prompt,
+      },
+      {
+        role: "user",
+        content: `Contract text:\n"""\n${text}\n"""${ruleContext}`,
+      },
+    ],
+  });
 
-  const raw = response.content
-    .filter((b) => b.type === "text")
-    .map((b) => b.text)
-    .join("")
-    .trim();
+  const raw = response.choices[0]?.message?.content?.trim() ?? "";
 
-  // The prompts instruct the model to return ONLY JSON; parse it, but if the
-  // model wraps it (e.g. ```json fences) fall back to surfacing the raw text.
+  // Prompts instruct the model to return ONLY JSON.
+  // Fall back to regex extraction if the model wraps it in markdown fences.
   try {
     return JSON.parse(raw);
   } catch {
