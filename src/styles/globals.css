@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ========================================
-   ClauseWise Global Styles
-   ======================================== */
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ========================================
+   RESET & BASE
+   ======================================== */
 
 * {
   margin: 0;
@@ -25,8 +25,266 @@ body {
 }
 
 /* ========================================
-   Scrollbar Styling
+   TYPOGRAPHY SYSTEM
    ======================================== */
+
+/* H1 - 3xl, Bold, 36px, 44px line-height */
+@layer components {
+  .h1 {
+    @apply text-3xl font-bold leading-tight;
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  /* H2 - 2xl, Bold, 30px, 36px line-height */
+  .h2 {
+    @apply text-2xl font-bold leading-tight;
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  /* H3 - xl, Semibold, 20px, 28px line-height */
+  .h3 {
+    @apply text-xl font-semibold leading-relaxed;
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  /* Body - Base, Regular, 16px, 24px line-height */
+  .body {
+    @apply text-base font-normal leading-relaxed;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  /* Body Small - sm, Regular, 14px, 20px line-height */
+  .body-sm {
+    @apply text-sm font-normal leading-relaxed;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  /* Caption - xs, Regular, 12px, 16px line-height */
+  .caption {
+    @apply text-xs font-normal;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  /* Label - xs, Medium, 12px, 16px line-height */
+  .label {
+    @apply text-xs font-medium;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+/* ========================================
+   CARD SYSTEM
+   ======================================== */
+
+@layer components {
+  /* Base Card - consistent styling */
+  .card-base {
+    @apply rounded-2xl border border-[#27272A] bg-[#18181B] transition-all duration-200;
+  }
+
+  /* Card with padding */
+  .card {
+    @apply card-base p-6;
+  }
+
+  /* Glassmorphic Card */
+  .card-glass {
+    @apply rounded-2xl border border-[rgba(39,39,42,0.5)] bg-[rgba(24,24,27,0.8)] backdrop-blur-xl transition-all duration-200;
+  }
+
+  /* Card hover effect */
+  .card-hover {
+    @apply hover:border-[rgba(59,130,246,0.3)] hover:bg-[rgba(24,24,27,0.9)];
+  }
+
+  .card-glass-hover {
+    @apply hover:border-[rgba(59,130,246,0.4)] hover:bg-[rgba(24,24,27,0.95)];
+  }
+}
+
+/* ========================================
+   BUTTON SYSTEM
+   ======================================== */
+
+@layer components {
+  /* Primary Button - 44px height, 16px font, medium weight */
+  .btn-primary {
+    @apply px-6 py-3 bg-[#3B82F6] text-[#FAFAFA] font-medium text-base rounded-lg transition-all duration-200 cursor-pointer border border-transparent;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    @apply bg-[#2563EB] shadow-lg;
+  }
+
+  .btn-primary:active:not(:disabled) {
+    @apply bg-[#1d4ed8];
+    transform: scale(0.98);
+  }
+
+  .btn-primary:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  .btn-primary:focus-visible {
+    @apply outline-none ring-2 ring-[#3B82F6] ring-offset-2 ring-offset-[#09090B];
+  }
+
+  /* Secondary Button - 44px height, 16px font, medium weight */
+  .btn-secondary {
+    @apply px-6 py-3 bg-[#27272A] text-[#FAFAFA] font-medium text-base rounded-lg transition-all duration-200 cursor-pointer border border-[#27272A];
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-secondary:hover:not(:disabled) {
+    @apply bg-[#3f3f46] border-[#3f3f46];
+  }
+
+  .btn-secondary:active:not(:disabled) {
+    @apply bg-[#52525b] border-[#52525b];
+    transform: scale(0.98);
+  }
+
+  .btn-secondary:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  .btn-secondary:focus-visible {
+    @apply outline-none ring-2 ring-[#27272A] ring-offset-2 ring-offset-[#09090B];
+  }
+
+  /* Ghost Button - minimal, text-only */
+  .btn-ghost {
+    @apply px-4 py-2 text-[#FAFAFA] font-medium text-base rounded-lg transition-all duration-200 cursor-pointer;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-ghost:hover:not(:disabled) {
+    @apply bg-[#18181B];
+  }
+
+  .btn-ghost:active:not(:disabled) {
+    @apply bg-[#27272A];
+  }
+
+  .btn-ghost:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  /* Icon Button - 40px × 40px */
+  .btn-icon {
+    @apply w-10 h-10 p-2 text-[#A1A1AA] rounded-lg transition-all duration-200 cursor-pointer flex items-center justify-center hover:bg-[#18181B] hover:text-[#FAFAFA];
+  }
+
+  .btn-icon:focus-visible {
+    @apply outline-none ring-2 ring-[#3B82F6] ring-offset-2 ring-offset-[#09090B];
+  }
+
+  .btn-icon:active {
+    @apply scale-95;
+  }
+
+  /* Small Button - 36px height */
+  .btn-sm {
+    @apply px-4 py-2 text-sm rounded-md;
+    height: 36px;
+  }
+
+  /* Large Button - 48px height */
+  .btn-lg {
+    @apply px-8 py-3 text-base rounded-lg;
+    height: 48px;
+  }
+
+  /* Link Button */
+  .btn-link {
+    @apply text-[#3B82F6] font-medium transition-colors duration-200 cursor-pointer;
+  }
+
+  .btn-link:hover {
+    @apply text-[#2563EB] underline;
+  }
+}
+
+/* ========================================
+   FORM ELEMENTS
+   ======================================== */
+
+@layer components {
+  input,
+  textarea,
+  select {
+    font-family: inherit;
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+  }
+
+  /* File Input Hidden */
+  .file-input-hidden {
+    display: none;
+  }
+
+  /* Form Input */
+  .form-input {
+    @apply w-full px-4 py-3 bg-[#18181B] border border-[#27272A] rounded-lg text-[#FAFAFA] placeholder-[#71717A] transition-all duration-200;
+  }
+
+  .form-input:focus {
+    @apply border-[#3B82F6] ring-1 ring-[#3B82F6];
+  }
+
+  .form-input:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  /* Textarea */
+  .form-textarea {
+    @apply form-input resize-none;
+  }
+
+  /* Checkbox */
+  .checkbox {
+    @apply w-5 h-5 rounded border-2 border-[#27272A] cursor-pointer transition-all duration-200;
+  }
+
+  .checkbox:checked {
+    @apply bg-[#3B82F6] border-[#3B82F6];
+  }
+
+  /* Radio Button */
+  .radio {
+    @apply w-5 h-5 rounded-full border-2 border-[#27272A] cursor-pointer transition-all duration-200;
+  }
+
+  .radio:checked {
+    @apply border-[#3B82F6] bg-[#3B82F6];
+  }
+}
+
+/* ========================================
+   SCROLLBAR
+   ======================================== */
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -46,8 +304,9 @@ body {
 }
 
 /* ========================================
-   Selection
+   SELECTION
    ======================================== */
+
 ::selection {
   background-color: #3B82F6;
   color: #FAFAFA;
@@ -59,80 +318,46 @@ body {
 }
 
 /* ========================================
-   Links
+   LINKS
    ======================================== */
+
 a {
   color: inherit;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 /* ========================================
-   Buttons Base
+   TRANSITIONS & ANIMATIONS
    ======================================== */
-button {
-  border: none;
-  cursor: pointer;
-  font-family: inherit;
-}
 
-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
+@layer components {
+  /* Smooth transition */
+  .transition-smooth {
+    @apply transition-all duration-300;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
-/* ========================================
-   Form Elements
-   ======================================== */
-input,
-textarea,
-select {
-  font-family: inherit;
-}
+  /* Fast transition */
+  .transition-fast {
+    @apply transition-all duration-150;
+  }
 
-input:focus,
-textarea:focus,
-select:focus {
-  outline: none;
-}
+  /* Text gradient */
+  .text-gradient {
+    background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 
-/* ========================================
-   Transitions & Animations
-   ======================================== */
-* {
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
+  /* Focus ring */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-[#3B82F6] focus:ring-offset-2 focus:ring-offset-[#09090B];
+  }
 
-button,
-a {
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-}
-
-/* ========================================
-   Utility Classes
-   ======================================== */
-.glass {
-  background: rgba(24, 24, 27, 0.8);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(39, 39, 42, 0.5);
-}
-
-.card {
-  background: #18181B;
-  border: 1px solid #27272A;
-  border-radius: 12px;
-}
-
-.btn-primary {
-  @apply px-6 py-3 bg-blue-500 text-white rounded-lg font-medium hover:bg-blue-600 transition-colors;
-}
-
-.btn-secondary {
-  @apply px-6 py-3 bg-[#27272A] text-[#FAFAFA] rounded-lg font-medium hover:bg-[#3f3f46] transition-colors;
-}
-
-.text-gradient {
-  background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  /* Disabled state */
+  .disabled-state {
+    @apply opacity-50 cursor-not-allowed;
+  }
 }

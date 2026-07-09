@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Select every anchor/button that targets #upload-section
     const triggers = document.querySelectorAll(
-      'a[href="#upload-section"], #btnGetStarted, #btnGetStartedMobile'
+      'a[href="#upload-section"]'
     );
 
     triggers.forEach((el) => {
@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Mobile Navigation toggle
   const hamburger = document.getElementById("hamburger");
   const mobileNav = document.getElementById("mobileNav");
-  const mobileLinks = document.querySelectorAll(".mobile-link, .btn-signin-mobile, .btn-getstarted-mobile");
+  const mobileLinks = document.querySelectorAll(".mobile-link, .btn-signin-mobile");
 
   hamburger.addEventListener("click", () => {
     hamburger.classList.toggle("open");
@@ -493,143 +493,169 @@ document.addEventListener("DOMContentLoaded", () => {
   // Start the mockup loop!
   runMockupLoop();
 
-  // 5. Playground Dropzone Simulator
-  const dropzone = document.getElementById("dropzone");
-  const fileInput = document.getElementById("fileInput");
-  const dropzoneUnloaded = document.getElementById("dropzoneUnloaded");
-  const dropzoneLoading = document.getElementById("dropzoneLoading");
-  const dropzoneSuccess = document.getElementById("dropzoneSuccess");
-  const progressBar = document.getElementById("progressBar");
-  const loadingStage = document.getElementById("loadingStage");
-  const btnReset = document.getElementById("btnReset");
-  const resultDocType = document.getElementById("resultDocType");
-  const resultRiskIndicator = document.getElementById("resultRiskIndicator");
-  const resultScroller = document.getElementById("resultScroller");
-  const samplePills = document.querySelectorAll(".pill-btn");
+  // 5. Product Demo Auto-Loop Sequence
+  const demoStateUpload = document.getElementById("demoStateUpload");
+  const demoCursor = document.getElementById("demoCursor");
+  const demoUploadProgress = document.getElementById("demoUploadProgress");
+  const demoProgressBar = document.getElementById("demoProgressBar");
+  
+  const demoStateResults = document.getElementById("demoStateResults");
+  const demoChecklist = document.getElementById("demoChecklist");
+  const demoGaugeCard = document.getElementById("demoGaugeCard");
+  const demoGaugeFill = document.getElementById("demoGaugeFill");
+  const demoGaugeVal = document.getElementById("demoGaugeVal");
+  
+  const demoRisks = document.getElementById("demoRisks");
+  const demoRiskCards = demoRisks ? demoRisks.querySelectorAll(".demo-risk-card") : [];
+  const demoSummaryBox = document.getElementById("demoSummaryBox");
+  const demoSummaryTypewriter = document.getElementById("demoSummaryTypewriter");
+  const demoActions = document.getElementById("demoActions");
 
-  const STAGES = [
-    "Uploading...",
-    "Reading Document...",
-    "Extracting Text...",
-    "Analyzing Clauses...",
-    "Generating Summary...",
-    "Risk Analysis Complete"
-  ];
+  let demoTimeouts = [];
 
-  samplePills.forEach(pill => {
-    pill.addEventListener("click", () => {
-      samplePills.forEach(p => p.classList.remove("active"));
-      pill.classList.add("active");
-      
-      const sampleKey = pill.getAttribute("data-sample");
-      simulateProcessing(sampleKey);
-    });
-  });
-
-  dropzone.addEventListener("click", () => {
-    if (dropzoneLoading.classList.contains("hidden") && dropzoneSuccess.classList.contains("hidden")) {
-      fileInput.click();
-    }
-  });
-
-  fileInput.addEventListener("change", () => {
-    if (fileInput.files.length > 0) {
-      const samples = ["internship", "hostel", "freelance", "hackathon"];
-      const randomKey = samples[Math.floor(Math.random() * samples.length)];
-      simulateProcessing(randomKey, fileInput.files[0].name);
-    }
-  });
-
-  // Drag over actions
-  dropzone.addEventListener("dragover", (e) => {
-    e.preventDefault();
-    dropzone.classList.add("dragover");
-  });
-
-  dropzone.addEventListener("dragleave", () => {
-    dropzone.classList.remove("dragover");
-  });
-
-  dropzone.addEventListener("drop", (e) => {
-    e.preventDefault();
-    dropzone.classList.remove("dragover");
-    if (e.dataTransfer.files.length > 0) {
-      const samples = ["internship", "hostel", "freelance", "hackathon"];
-      const randomKey = samples[Math.floor(Math.random() * samples.length)];
-      simulateProcessing(randomKey, e.dataTransfer.files[0].name);
-    }
-  });
-
-  function simulateProcessing(key, customName = null) {
-    // Hide unloaded, show loading
-    dropzoneUnloaded.classList.add("hidden");
-    dropzoneSuccess.classList.add("hidden");
-    dropzoneLoading.classList.remove("hidden");
-    progressBar.style.width = "0%";
-    
-    let stageIndex = 0;
-    let progress = 0;
-    
-    // Cycle through analysis states
-    const stageTimer = setInterval(() => {
-      if (stageIndex < STAGES.length - 1) {
-        stageIndex++;
-        loadingStage.textContent = STAGES[stageIndex];
-      }
-    }, 350);
-
-    const progressTimer = setInterval(() => {
-      progress += 4;
-      progressBar.style.width = `${progress}%`;
-      
-      if (progress >= 100) {
-        clearInterval(progressTimer);
-        clearInterval(stageTimer);
-        setTimeout(() => {
-          renderAnalysisResult(key, customName);
-        }, 200);
-      }
-    }, 70);
+  function clearDemoTimeouts() {
+    demoTimeouts.forEach(t => clearTimeout(t));
+    demoTimeouts = [];
   }
 
-  function renderAnalysisResult(key, customName) {
-    const data = PLAYGROUND_DOCS[key];
-    if (!data) return;
-
-    dropzoneLoading.classList.add("hidden");
-    dropzoneSuccess.classList.remove("hidden");
-
-    resultDocType.textContent = customName ? customName : data.title;
-    resultRiskIndicator.textContent = `Risk Score: ${data.riskScore}% (${data.riskLabel})`;
-    
-    if (data.riskScore > 75) {
-      resultRiskIndicator.style.color = "var(--color-danger)";
-    } else if (data.riskScore > 40) {
-      resultRiskIndicator.style.color = "var(--color-warning)";
-    } else {
-      resultRiskIndicator.style.color = "var(--color-success)";
-    }
-
-    let clausesHtml = "";
-    data.clauses.forEach(clause => {
-      clausesHtml += `
-        <div class="result-block">
-          <div class="result-clause-title">${clause.title}</div>
-          <div class="result-clause-text">"${clause.text}"</div>
-          <div class="result-explanation">${clause.explanation}</div>
-        </div>
-      `;
-    });
-    
-    resultScroller.innerHTML = clausesHtml;
+  function demoTimeout(fn, ms) {
+    demoTimeouts.push(setTimeout(fn, ms));
   }
 
-  btnReset.addEventListener("click", (e) => {
-    e.stopPropagation();
-    dropzoneSuccess.classList.add("hidden");
-    dropzoneUnloaded.classList.remove("hidden");
-    fileInput.value = "";
-    samplePills.forEach(p => p.classList.remove("active"));
-  });
+  function runProductDemoLoop() {
+    if (!document.getElementById("upload-section")) return;
+    clearDemoTimeouts();
+
+    // Reset all states
+    demoStateUpload.classList.add("active");
+    demoStateUpload.classList.remove("hidden");
+    demoStateResults.classList.remove("active");
+    demoStateResults.classList.add("hidden");
+    
+    demoCursor.style.opacity = "0";
+    demoCursor.style.transform = "translate(40px, 40px)";
+    demoUploadProgress.classList.add("hidden");
+    demoProgressBar.style.width = "0%";
+
+    if (demoChecklist) {
+      demoChecklist.querySelectorAll("li").forEach(li => li.classList.remove("checked"));
+    }
+    
+    demoGaugeCard.classList.add("hidden");
+    demoGaugeFill.style.strokeDashoffset = "125.6";
+    demoGaugeVal.textContent = "0";
+    
+    demoRiskCards.forEach(card => card.classList.add("hidden"));
+    
+    demoSummaryBox.classList.add("hidden");
+    demoSummaryTypewriter.innerHTML = "";
+    demoActions.classList.add("hidden");
+
+    // Sequence Timing
+    
+    // 1. Cursor moves in and clicks
+    demoTimeout(() => {
+      demoCursor.style.opacity = "1";
+      demoCursor.style.transform = "translate(-10px, -20px)";
+    }, 1000);
+
+    demoTimeout(() => {
+      demoCursor.style.transform = "translate(-10px, -20px) scale(0.9)"; // click
+    }, 2000);
+
+    demoTimeout(() => {
+      demoCursor.style.transform = "translate(-10px, -20px) scale(1)"; // release
+    }, 2200);
+
+    // 2. Show upload progress
+    demoTimeout(() => {
+      demoCursor.style.opacity = "0";
+      document.querySelector(".upload-box-demo").classList.add("hidden");
+      demoUploadProgress.classList.remove("hidden");
+    }, 2500);
+
+    demoTimeout(() => {
+      demoProgressBar.style.width = "100%";
+    }, 2800);
+
+    // 3. Switch to Results & start checklist
+    demoTimeout(() => {
+      demoStateUpload.classList.remove("active");
+      demoStateUpload.classList.add("hidden");
+      demoStateResults.classList.add("active");
+      demoStateResults.classList.remove("hidden");
+    }, 4500);
+
+    if (demoChecklist) {
+      const lis = demoChecklist.querySelectorAll("li");
+      [5000, 5600, 6200, 6800, 7400].forEach((ms, idx) => {
+        if (lis[idx]) {
+          demoTimeout(() => {
+            lis[idx].classList.add("checked");
+          }, ms);
+        }
+      });
+    }
+
+    // 4. Slide in risk cards
+    demoTimeout(() => {
+      demoRiskCards.forEach((card, idx) => {
+        setTimeout(() => card.classList.remove("hidden"), idx * 300);
+      });
+    }, 6200);
+
+    // 5. Show gauge and animate to 82
+    demoTimeout(() => {
+      demoGaugeCard.classList.remove("hidden");
+      // Animate dashoffset from 125.6 to 125.6 * (1 - 82/100) = 22.6
+      setTimeout(() => {
+        demoGaugeFill.style.strokeDashoffset = "22.6";
+        // Counter animate
+        let c = 0;
+        const intr = setInterval(() => {
+          c += 2;
+          if (c >= 82) { c = 82; clearInterval(intr); }
+          demoGaugeVal.textContent = c;
+        }, 20);
+      }, 100);
+    }, 7000);
+
+    // 6. Typewriter summary
+    demoTimeout(() => {
+      demoSummaryBox.classList.remove("hidden");
+      const txt = "We found 1 critical issue regarding indefinite confidentiality and an asymmetric notice period. See suggested changes.";
+      let i = 0;
+      demoSummaryTypewriter.innerHTML = '<span class="cursor">|</span>';
+      const typeInt = setInterval(() => {
+        if (i < txt.length) {
+          demoSummaryTypewriter.innerHTML = txt.substring(0, i+1) + '<span class="cursor">|</span>';
+          i++;
+        } else {
+          clearInterval(typeInt);
+          demoSummaryTypewriter.innerHTML = txt;
+        }
+      }, 30);
+    }, 8500);
+
+    // 7. Show actions
+    demoTimeout(() => {
+      demoActions.classList.remove("hidden");
+    }, 12000);
+
+    // 8. Reset after a pause (Total loop ~18s)
+    demoTimeout(() => {
+      demoStateResults.classList.remove("active");
+      demoStateResults.style.opacity = "0";
+    }, 16500);
+
+    demoTimeout(() => {
+      document.querySelector(".upload-box-demo").classList.remove("hidden");
+      demoStateResults.style.opacity = "1";
+      runProductDemoLoop();
+    }, 17500);
+  }
+
+  // Start the new demo loop
+  runProductDemoLoop();
 
 });

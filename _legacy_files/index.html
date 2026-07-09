@@ -37,8 +37,7 @@
       </nav>
       
       <div class="nav-actions">
-        <a href="#signin" class="btn-signin">Sign In</a>
-        <a href="upload.html" class="btn-getstarted" id="btnGetStarted">Get Started</a>
+        <a href="/signin" class="btn-signin" style="background-color: var(--color-brand-accent); color: white; border-color: var(--color-brand-accent);">Sign In</a>
       </div>
 
       <!-- Mobile Hamburger Button -->
@@ -59,8 +58,7 @@
       <a href="#demo" class="mobile-link">Demo</a>
       <a href="#contact" class="mobile-link">Contact</a>
       <div class="mobile-nav-actions">
-        <a href="#signin" class="btn-signin-mobile">Sign In</a>
-          <a href="upload.html" class="btn-getstarted-mobile" id="btnGetStartedMobile">Get Started</a>
+        <a href="/signin" class="btn-signin-mobile" style="background-color: var(--color-brand-accent); color: white; border-color: var(--color-brand-accent);">Sign In</a>
       </div>
     </nav>
   </div>
@@ -544,62 +542,144 @@
       </div>
     </section>
 
-    <!-- Section 5: Interactive Workspace Demo -->
-    <section class="playground-section" id="upload-section">
+    <!-- Section 5: Auto-Playing Product Demo -->
+    <section class="demo-section" id="upload-section">
       <div class="section-container">
-        <div class="playground-layout">
-          <div class="playground-info">
-            <div class="section-tag">Interactive Workspace</div>
-            <h2 class="section-title">See ClauseWise in Action</h2>
-            <p class="section-subtitle">Drag and drop your contract or select a category below to test the AI interface.</p>
+        <div class="demo-layout">
+          <!-- Left Static Panel -->
+          <div class="demo-info">
+            <div class="section-tag">Interactive Preview</div>
+            <h2 class="section-title">Try ClauseWise Live</h2>
+            <p class="section-subtitle">See how ClauseWise transforms complex legal jargon into plain English instantly.</p>
             
-            <div class="sample-pills">
-              <span>Category selection:</span>
-              <button class="pill-btn active" data-sample="internship">Internship Offer</button>
-              <button class="pill-btn" data-sample="hostel">PG Rental Lease</button>
-              <button class="pill-btn" data-sample="freelance">Freelance Contract</button>
-              <button class="pill-btn" data-sample="hackathon">Hackathon T&Cs</button>
+            <div class="demo-categories">
+              <div class="demo-category-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                <span>Internship Offer</span>
+              </div>
+              <div class="demo-category-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>PG Rental Agreement</span>
+              </div>
+              <div class="demo-category-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                <span>Freelance Contract</span>
+              </div>
+              <div class="demo-category-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                <span>Hackathon T&C</span>
+              </div>
+            </div>
+
+            <div class="demo-trust-badges">
+              <div class="trust-badge">
+                <span class="trust-icon">⚡</span>
+                <span>Average Analysis Time: 2.4s</span>
+              </div>
+              <div class="trust-badge">
+                <span class="trust-icon">🎓</span>
+                <span>Student Friendly</span>
+              </div>
+              <div class="trust-badge">
+                <span class="trust-icon">✨</span>
+                <span>Plain English</span>
+              </div>
             </div>
           </div>
 
-          <!-- File Upload Playground Dropzone -->
-          <div class="playground-dropzone-container">
-            <div class="dropzone" id="dropzone">
-              <div class="dropzone-unloaded" id="dropzoneUnloaded">
-                <div class="dropzone-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                    <polyline points="17 8 12 3 7 8"></polyline>
-                    <line x1="12" y1="3" x2="12" y2="15"></line>
-                  </svg>
-                </div>
-                <h4 class="dropzone-title">Drag & Drop your document</h4>
-                <p class="dropzone-text">PDF, DOCX, TXT, PNG, JPG (Max 15MB)</p>
-                <button class="btn-reset" style="margin-top:12px; pointer-events:none;">Choose File</button>
-                <input type="file" id="fileInput" class="hidden-file-input" accept=".pdf,.docx,.txt,image/*">
+          <!-- Right Dynamic App Window -->
+          <div class="demo-app-window glass-card" id="demoAppWindow">
+            <div class="mockup-header">
+              <div class="mockup-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
               </div>
-
-              <div class="dropzone-loading hidden" id="dropzoneLoading">
-                <div class="spinner"></div>
-                <h4 class="loading-title" id="loadingStage">Uploading...</h4>
-                <p class="loading-text">Extracting definitions and calculating risk coefficients...</p>
-                <div class="progress-bar-container">
-                  <div class="progress-bar-fill" id="progressBar"></div>
-                </div>
+              <div class="mockup-title">
+                <svg class="panel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                <span>Internship_Offer.pdf</span>
               </div>
-
-              <div class="dropzone-success hidden" id="dropzoneSuccess">
-                <div class="success-header">
-                  <div class="success-badge">✓ Complete Analysis</div>
-                  <button class="btn-reset" id="btnReset">Upload Another</button>
-                </div>
-                <div class="success-content">
-                  <div class="result-headline">
-                    <span id="resultDocType">PG / Hostel Agreement</span>
-                    <span class="result-risk-indicator" id="resultRiskIndicator">55% Risk Score</span>
+            </div>
+            
+            <div class="demo-app-body">
+              
+              <!-- State 1 & 2: Upload Screen & Progress -->
+              <div class="demo-state demo-state-upload active" id="demoStateUpload">
+                <div class="upload-box-demo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="40" height="40" style="color:var(--color-brand-accent); margin-bottom: 12px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                  <h4 style="font-size:16px; margin-bottom:4px;">Drag & Drop your document</h4>
+                  <p style="color:var(--color-text-muted); font-size:13px; margin-bottom:20px;">PDF, DOCX, TXT (Max 15MB)</p>
+                  <button class="btn-primary" style="padding: 8px 16px; font-size: 13px;">Choose File</button>
+                  <div class="demo-cursor" id="demoCursor">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="black" stroke-width="1.5"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/></svg>
                   </div>
-                  <div class="result-scroller" id="resultScroller">
-                    <!-- Injected via JavaScript -->
+                </div>
+                
+                <div class="demo-upload-progress hidden" id="demoUploadProgress">
+                  <div class="spinner" style="width:24px; height:24px; border-width:2px; margin: 0 auto 12px;"></div>
+                  <h4 style="font-size:15px; margin-bottom:12px;">Uploading & Scanning...</h4>
+                  <div class="progress-bar-container" style="max-width: 240px; margin: 0 auto;">
+                    <div class="progress-bar-fill" id="demoProgressBar" style="width: 0%"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- State 3-7: Analysis Results -->
+              <div class="demo-state demo-state-results" id="demoStateResults">
+                <div class="demo-sidebar">
+                  <div class="demo-sidebar-title">Analysis Steps</div>
+                  <ul class="demo-checklist" id="demoChecklist">
+                    <li><span class="check"></span> Reading Document</li>
+                    <li><span class="check"></span> OCR Extraction</li>
+                    <li><span class="check"></span> Finding Clauses</li>
+                    <li><span class="check"></span> Risk Detection</li>
+                    <li><span class="check"></span> Generating Summary</li>
+                  </ul>
+                  
+                  <!-- State 5: Gauge -->
+                  <div class="demo-gauge-card hidden" id="demoGaugeCard">
+                    <div style="font-size:11px; color:var(--color-text-muted); margin-bottom:8px;">Health Score</div>
+                    <svg viewBox="0 0 100 50" class="demo-gauge-svg">
+                      <path class="gauge-bg" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="8" stroke-linecap="round"/>
+                      <path class="gauge-fill" id="demoGaugeFill" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="var(--color-success)" stroke-width="8" stroke-linecap="round" stroke-dasharray="125.6" stroke-dashoffset="125.6"/>
+                    </svg>
+                    <div class="demo-gauge-val" id="demoGaugeVal">0</div>
+                  </div>
+                </div>
+
+                <div class="demo-main-panel">
+                  <!-- State 4: Risk Cards -->
+                  <div class="demo-risks" id="demoRisks">
+                    <div class="demo-risk-card high-risk hidden">
+                      <div class="risk-badge badge-high">High Risk</div>
+                      <h4>Indefinite Confidentiality</h4>
+                      <p>NDA has no expiry date.</p>
+                    </div>
+                    <div class="demo-risk-card med-risk hidden">
+                      <div class="risk-badge badge-medium">Medium Risk</div>
+                      <h4>Termination Notice</h4>
+                      <p>Asymmetric notice period.</p>
+                    </div>
+                    <div class="demo-risk-card low-risk hidden">
+                      <div class="risk-badge badge-safe">Safe</div>
+                      <h4>Travel Refund</h4>
+                      <p>Standard 30-day refund policy.</p>
+                    </div>
+                  </div>
+
+                  <!-- State 6: Summary Typewriter -->
+                  <div class="demo-summary-box hidden" id="demoSummaryBox">
+                    <h4 style="font-size:14px; margin-bottom:8px; display:flex; align-items:center; gap:6px;">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                      Plain English Summary
+                    </h4>
+                    <p id="demoSummaryTypewriter" style="font-size:13px; color:var(--color-text-muted); line-height:1.6;"></p>
+                  </div>
+
+                  <!-- State 7: Actions -->
+                  <div class="demo-actions hidden" id="demoActions">
+                    <button class="btn-primary" style="font-size: 13px; padding: 6px 14px;">Download Report</button>
+                    <button class="btn-secondary" style="font-size: 13px; padding: 6px 14px;">Copy Suggestions</button>
                   </div>
                 </div>
               </div>
