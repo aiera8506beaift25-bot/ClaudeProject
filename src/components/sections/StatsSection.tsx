@@ -1,59 +1,106 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
-interface StatItem {
-  value: number
-  label: string
-  suffix: string
-}
-
-const STATS: StatItem[] = [
-  { value: 72, label: 'Risk Severity Rate', suffix: '%' },
-  { value: 15240, label: 'Files Analyzed', suffix: '+' },
-  { value: 3800, label: 'Hours Saved', suffix: '%' },
-  { value: 12900, label: 'Documents Verified', suffix: '+' },
+const STATS = [
+  { target: 72, suffix: '%', label: 'Risk Severity Rate' },
+  { target: 15240, suffix: '+', label: 'Files Analyzed' },
+  { target: 3800, suffix: '+', label: 'Hours Saved' },
+  { target: 12900, suffix: '+', label: 'Documents Verified' },
 ]
 
-export default function StatsSection() {
-  const [stats, setStats] = useState<number[]>(STATS.map(() => 0))
+function useCountUp(ref: React.RefObject<HTMLSpanElement>, target: number, suffix: string, triggered: boolean) {
+  useEffect(() => {
+    if (!triggered || !ref.current) return
+    const duration = 1500
+    const stepTime = 30
+    const steps = duration / stepTime
+    const increment = target / steps
+    let current = 0
+    const el = ref.current
+
+    const timer = setInterval(() => {
+      current += increment
+      if (current >= target) {
+        el.textContent = target.toLocaleString() + suffix
+        clearInterval(timer)
+      } else {
+        el.textContent = Math.floor(current).toLocaleString() + suffix
+      }
+    }, stepTime)
+
+    return () => clearInterval(timer)
+  }, [triggered, target, suffix, ref])
+}
+
+function StatItem({ target, suffix, label }: { target: number; suffix: string; label: string }) {
+  const numRef = useRef<HTMLSpanElement>(null)
+  const itemRef = useRef<HTMLDivElement>(null)
+  const triggered = useRef(false)
+  const trState = useRef(false)
 
   useEffect(() => {
-    const timers: NodeJS.Timeout[] = []
-    STATS.forEach((stat, index) => {
-      let current = 0
-      const timer = setInterval(() => {
-        current += stat.value / 100
-        if (current >= stat.value) {
-          current = stat.value
-          clearInterval(timer)
-        }
-        setStats((prev) => {
-          const newStats = [...prev]
-          newStats[index] = Math.floor(current)
-          return newStats
-        })
-      }, 20)
-      timers.push(timer)
-    })
+    const el = itemRef.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !triggered.current) {
+          triggered.current = true
+          trState.current = true
+          // Manually kick off count-up
+          if (!numRef.current) return
+          const duration = 1500
+          const stepTime = 30
+          const steps = duration / stepTime
+          const increment = target / steps
+          let current = 0
+          const span = numRef.current
 
-    return () => timers.forEach((t) => clearInterval(t))
-  }, [])
+          const timer = setInterval(() => {
+            current += increment
+            if (current >= target) {
+              span.textContent = target.toLocaleString() + suffix
+              clearInterval(timer)
+            } else {
+              span.textContent = Math.floor(current).toLocaleString() + suffix
+            }
+          }, stepTime)
+        }
+      },
+      { threshold: 0.5 }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [target, suffix])
 
   return (
-    <section id="stats" className="py-20 px-6 bg-[#09090B]">
-      <div className="max-w-[1280px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {STATS.map((stat, i) => (
-            <div key={i} className="text-center">
-              <div className="text-4xl lg:text-5xl font-bold text-[#3B82F6] mb-4">
-                {stats[i].toLocaleString()}
-                <span className="text-2xl">{stat.suffix}</span>
-              </div>
-              <div className="body-sm text-[#A1A1AA]">{stat.label}</div>
-            </div>
-          ))}
-        </div>
+    <div ref={itemRef} className="flex flex-col items-center gap-2">
+      <span
+        ref={numRef}
+        className="text-[36px] font-extrabold tracking-[-1px] text-[#3B82F6]"
+      >
+        0{suffix}
+      </span>
+      <span className="text-[13px] font-medium text-[#A1A1AA]">{label}</span>
+    </div>
+  )
+}
+
+export default function StatsSection() {
+  return (
+    <section
+      id="stats"
+      className="relative z-[1] border-t border-b"
+      style={{
+        background: '#101010',
+        borderColor: 'rgba(255,255,255,0.08)',
+        padding: '48px 24px',
+      }}
+    >
+      <div className="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        {STATS.map(s => (
+          <StatItem key={s.label} target={s.target} suffix={s.suffix} label={s.label} />
+        ))}
       </div>
     </section>
   )
