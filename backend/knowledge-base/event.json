@@ -1,0 +1,202 @@
+[
+  {
+    "title": "Non-Refundable Entry Fee",
+    "keywords": ["non-refundable", "entry fee", "registration fee", "no refund", "forfeit"],
+    "severity": "High",
+    "plainEnglish": "Your registration or entry fee will not be returned if the event is cancelled.",
+    "counterClause": "Entry fees shall be refunded in full if the event is cancelled by the organiser.",
+    "negotiationTip": "Ask for a refund policy in writing before paying any registration fee."
+  },
+  {
+    "title": "Media Rights Waiver",
+    "keywords": ["photo", "video", "recording", "media rights", "likeness", "image"],
+    "severity": "High",
+    "plainEnglish": "The organiser can use your photos and videos for promotional purposes without paying you.",
+    "counterClause": "Use of participant likeness requires separate written consent and is limited to event promotion.",
+    "negotiationTip": "Request that media use be limited to the specific event and not sold to third parties."
+  },
+  {
+    "title": "IP Ownership of Submissions",
+    "keywords": ["intellectual property", "submission", "project", "idea", "assign", "ownership"],
+    "severity": "Critical",
+    "plainEnglish": "The organiser may claim ownership of any project or idea you submit at the event.",
+    "counterClause": "All participant IP remains the property of the participant. The organiser receives no ownership rights.",
+    "negotiationTip": "Never sign an agreement that transfers ownership of your idea to the organiser."
+  },
+  {
+    "title": "Disqualification Without Appeal",
+    "keywords": ["disqualify", "sole discretion", "no appeal", "final decision", "removed"],
+    "severity": "High",
+    "plainEnglish": "You can be removed from the competition without explanation and with no right to appeal.",
+    "counterClause": "Disqualification requires written notice with specific reasons. Participant has 48 hours to respond.",
+    "negotiationTip": "Request an appeal process be added to the rules before participating."
+  },
+  {
+    "title": "Prize Substitution",
+    "keywords": ["substitute prize", "alternative prize", "change prize", "at organiser's discretion"],
+    "severity": "Medium",
+    "plainEnglish": "The advertised prize can be replaced with something of lesser value.",
+    "counterClause": "Prizes shall not be substituted without participant consent. Cash equivalent must be offered.",
+    "negotiationTip": "Ask for the prize to be listed with a specific cash value in the contract."
+  },
+  {
+    "title": "No Prize Guarantee",
+    "keywords": ["no guarantee", "prize at discretion", "may not award", "subject to change"],
+    "severity": "High",
+    "plainEnglish": "There is no legal obligation to award the prize even if you win.",
+    "counterClause": "The organiser commits to awarding the advertised prize to the winner as determined by the judging panel.",
+    "negotiationTip": "Require written confirmation that the prize will be awarded before participating."
+  },
+  {
+    "title": "Liability Waiver",
+    "keywords": ["liability", "not responsible", "waive", "injury", "loss", "damage"],
+    "severity": "High",
+    "plainEnglish": "The organiser is not liable if you are injured or lose property at the event.",
+    "counterClause": "The organiser shall maintain appropriate insurance and is liable for negligence-related injuries.",
+    "negotiationTip": "Never sign a blanket liability waiver — ensure it excludes organisational negligence."
+  },
+  {
+    "title": "Cancellation Without Compensation",
+    "keywords": ["cancel", "postpone", "no compensation", "force majeure", "rescheduled"],
+    "severity": "High",
+    "plainEnglish": "The event can be cancelled or postponed and you will not be compensated.",
+    "counterClause": "If the event is cancelled, all registration fees and documented travel expenses shall be refunded.",
+    "negotiationTip": "Request a refund policy covering your travel and accommodation costs."
+  },
+  {
+    "title": "Data Collection and Sharing",
+    "keywords": ["personal data", "share", "third party", "partners", "sponsors", "marketing"],
+    "severity": "Medium",
+    "plainEnglish": "Your personal information may be shared with sponsors or third-party partners.",
+    "counterClause": "Personal data shall not be shared with third parties without explicit written consent.",
+    "negotiationTip": "Opt out of any marketing communications and data sharing during registration."
+  },
+  {
+    "title": "Rule Changes Without Notice",
+    "keywords": ["reserves the right", "modify rules", "change terms", "at any time"],
+    "severity": "Medium",
+    "plainEnglish": "The organiser can change competition rules at any time without informing participants.",
+    "counterClause": "Rule changes require 48 hours written notice to all participants before taking effect.",
+    "negotiationTip": "Ask for a rule freeze period before the competition begins."
+  },
+  {
+    "title": "Mandatory Arbitration",
+    "keywords": ["arbitration", "binding arbitration", "no lawsuit", "dispute resolution"],
+    "severity": "High",
+    "plainEnglish": "You cannot take the organiser to court — disputes must be handled through private arbitration.",
+    "counterClause": "Either party retains the right to pursue claims in a court of competent jurisdiction.",
+    "negotiationTip": "Mandatory arbitration favours organisers — try to remove or limit this clause."
+  },
+  {
+    "title": "Indemnification",
+    "keywords": ["indemnify", "hold harmless", "legal costs", "claims"],
+    "severity": "High",
+    "plainEnglish": "You could be held responsible for any legal claims arising from your participation.",
+    "counterClause": "Indemnification is limited to claims arising directly from the participant's wilful misconduct.",
+    "negotiationTip": "Request that indemnification be mutual and capped at the registration fee value."
+  },
+  {
+    "title": "Sponsorship Exclusivity",
+    "keywords": ["exclusive sponsor", "competing brand", "prohibited", "cannot promote"],
+    "severity": "Medium",
+    "plainEnglish": "You may not be allowed to promote or wear competing brands at the event.",
+    "counterClause": "Exclusivity obligations must be clearly defined and limited to the event duration only.",
+    "negotiationTip": "Ask for a specific list of prohibited brands before agreeing to exclusivity."
+  },
+  {
+    "title": "Team Ownership Ambiguity",
+    "keywords": ["team", "joint submission", "co-ownership", "team member"],
+    "severity": "Medium",
+    "plainEnglish": "The contract does not clearly define how IP or prizes are split among team members.",
+    "counterClause": "IP ownership and prize distribution among team members must be agreed in a separate written agreement.",
+    "negotiationTip": "Draft a simple team agreement before the event defining ownership and prize splits."
+  },
+  {
+    "title": "Tax Liability for Prize",
+    "keywords": ["tax", "taxable", "prize value", "recipient responsible"],
+    "severity": "Medium",
+    "plainEnglish": "You are responsible for paying any taxes on the prize money or goods you receive.",
+    "counterClause": "The organiser shall provide documentation of prize value for tax reporting purposes.",
+    "negotiationTip": "Factor in tax obligations when evaluating the real value of the prize."
+  },
+  {
+    "title": "Recording Consent",
+    "keywords": ["record", "broadcast", "stream", "live stream", "consent"],
+    "severity": "Medium",
+    "plainEnglish": "The event may be recorded or broadcast live, including footage of you.",
+    "counterClause": "Participant consents to recording only for event documentation, not for commercial use.",
+    "negotiationTip": "Clarify whether recordings will be sold, licensed, or used in advertising."
+  },
+  {
+    "title": "Code of Conduct Enforcement",
+    "keywords": ["code of conduct", "behaviour", "removed", "expelled", "violate"],
+    "severity": "Low",
+    "plainEnglish": "Violating conduct rules can result in removal from the event without a refund.",
+    "counterClause": "Conduct violations require a warning before removal, except in cases of serious misconduct.",
+    "negotiationTip": "Request a copy of the full code of conduct before registering."
+  },
+  {
+    "title": "Participation Fee Forfeiture",
+    "keywords": ["forfeit", "no refund", "participation fee", "withdrawal"],
+    "severity": "Medium",
+    "plainEnglish": "If you withdraw, you lose your participation fee regardless of the reason.",
+    "counterClause": "Withdrawals made more than 7 days before the event are entitled to a 50% refund.",
+    "negotiationTip": "Ask about the cancellation window and refund terms before paying."
+  },
+  {
+    "title": "Venue Not Guaranteed",
+    "keywords": ["venue subject to change", "alternate venue", "location may change"],
+    "severity": "Low",
+    "plainEnglish": "The event location could change, potentially causing travel and accommodation issues.",
+    "counterClause": "Venue changes must be communicated at least 14 days in advance with travel cost reimbursement.",
+    "negotiationTip": "Book refundable travel and accommodation until the venue is confirmed."
+  },
+  {
+    "title": "Minimum Age Restriction",
+    "keywords": ["age", "18 years", "minor", "legal age", "guardian consent"],
+    "severity": "Low",
+    "plainEnglish": "Participants under 18 may need guardian consent, and failure to comply can void your entry.",
+    "counterClause": "Age eligibility requirements and guardian consent processes must be clearly communicated upfront.",
+    "negotiationTip": "Confirm eligibility requirements before investing time in preparation."
+  },
+  {
+    "title": "Winner Announcement Delay",
+    "keywords": ["announcement", "results", "subject to verification", "final results"],
+    "severity": "Low",
+    "plainEnglish": "Results may be delayed indefinitely pending verification by the organiser.",
+    "counterClause": "Final results shall be announced within 7 days of the event closing.",
+    "negotiationTip": "Ask for a firm results timeline in the event rules."
+  },
+  {
+    "title": "Consent to Background Check",
+    "keywords": ["background check", "verification", "eligibility check"],
+    "severity": "Low",
+    "plainEnglish": "Participating means you consent to eligibility verification or background screening.",
+    "counterClause": "Background checks must comply with applicable data protection laws and be limited to eligibility verification.",
+    "negotiationTip": "Ask what specific checks are being run and how your data will be used."
+  },
+  {
+    "title": "Governing Law",
+    "keywords": ["governing law", "jurisdiction", "courts of"],
+    "severity": "Low",
+    "plainEnglish": "Disputes must be resolved under a specific jurisdiction's law, which may not be convenient.",
+    "counterClause": "Disputes shall be resolved under the laws of the country where the event is held.",
+    "negotiationTip": "Ensure the governing jurisdiction is where the event physically takes place."
+  },
+  {
+    "title": "Force Majeure",
+    "keywords": ["force majeure", "act of god", "beyond control", "unforeseen"],
+    "severity": "Low",
+    "plainEnglish": "The organiser has no obligation to compensate you if extraordinary events disrupt the event.",
+    "counterClause": "Force majeure events entitle participants to a full refund of registration fees.",
+    "negotiationTip": "Ensure force majeure covers refunds, not just suspension of obligations."
+  },
+  {
+    "title": "Entire Agreement Clause",
+    "keywords": ["entire agreement", "supersedes", "prior agreements"],
+    "severity": "Low",
+    "plainEnglish": "Only the written terms apply — verbal promises from organisers are not enforceable.",
+    "counterClause": "All material commitments made during the registration process must be documented in this agreement.",
+    "negotiationTip": "Get every important promise in writing before registering."
+  }
+]

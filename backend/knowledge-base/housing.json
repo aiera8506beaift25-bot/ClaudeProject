@@ -1,0 +1,202 @@
+[
+  {
+    "title": "Non-Refundable Security Deposit",
+    "keywords": ["non-refundable", "security deposit", "forfeit", "no return", "retain deposit"],
+    "severity": "Critical",
+    "plainEnglish": "Your security deposit will not be returned under any circumstances.",
+    "counterClause": "Security deposit shall be returned within 30 days of vacating, minus documented deductions.",
+    "negotiationTip": "Request an itemised list of all conditions that could lead to deductions before signing."
+  },
+  {
+    "title": "Excessive Deposit Deductions",
+    "keywords": ["deduct", "deduction", "damage", "repair cost", "cleaning fee", "withhold"],
+    "severity": "High",
+    "plainEnglish": "The landlord can deduct large amounts from your deposit for minor wear and tear.",
+    "counterClause": "Deductions are limited to damage beyond normal wear and tear, with receipts provided.",
+    "negotiationTip": "Take timestamped photos of the property on move-in day as evidence."
+  },
+  {
+    "title": "Lock-In Period",
+    "keywords": ["lock-in", "minimum term", "fixed term", "break clause", "early termination"],
+    "severity": "High",
+    "plainEnglish": "You cannot leave before the lock-in period ends without paying a penalty.",
+    "counterClause": "A break clause shall be available after 3 months with 30 days written notice.",
+    "negotiationTip": "Always negotiate a break clause, especially for leases longer than 6 months."
+  },
+  {
+    "title": "Early Exit Penalty",
+    "keywords": ["early termination", "penalty", "break fee", "exit fee", "forfeit rent"],
+    "severity": "High",
+    "plainEnglish": "Leaving before the lease ends will cost you a significant financial penalty.",
+    "counterClause": "Early termination penalty shall not exceed one month's rent.",
+    "negotiationTip": "Cap the penalty to one month's rent and get it written into the contract."
+  },
+  {
+    "title": "Unilateral Rent Increase",
+    "keywords": ["rent increase", "revise rent", "adjust rent", "landlord may increase", "at discretion"],
+    "severity": "Critical",
+    "plainEnglish": "The landlord can raise your rent at any time without your agreement.",
+    "counterClause": "Rent may only be increased once per year with 60 days written notice and by no more than the CPI rate.",
+    "negotiationTip": "Negotiate a fixed rent for the full lease term, or cap annual increases."
+  },
+  {
+    "title": "Short Notice Period",
+    "keywords": ["notice period", "vacate", "days notice", "written notice", "quit notice"],
+    "severity": "High",
+    "plainEnglish": "You could be asked to leave with very little advance warning.",
+    "counterClause": "Landlord must provide a minimum of 60 days written notice to vacate.",
+    "negotiationTip": "Ensure the notice period for both parties is equal and at least 30 days."
+  },
+  {
+    "title": "Tenant Responsible for All Repairs",
+    "keywords": ["tenant responsible", "at tenant's expense", "maintain", "repair", "damage caused by"],
+    "severity": "High",
+    "plainEnglish": "You may have to pay for repairs that are normally the landlord's responsibility.",
+    "counterClause": "Structural and appliance repairs are the landlord's responsibility. Tenant is responsible for minor maintenance only.",
+    "negotiationTip": "Define a clear threshold — e.g. repairs under $50 are your responsibility, above that is landlord's."
+  },
+  {
+    "title": "Hidden Utility Charges",
+    "keywords": ["utilities", "electricity", "water", "gas", "maintenance fee", "service charge", "additional charges"],
+    "severity": "Medium",
+    "plainEnglish": "Costs beyond rent — like utilities and service fees — may not be clearly disclosed upfront.",
+    "counterClause": "All charges beyond the monthly rent shall be itemised and agreed upon before signing.",
+    "negotiationTip": "Ask for an estimate of average monthly utility costs before committing."
+  },
+  {
+    "title": "Landlord Entry Without Notice",
+    "keywords": ["right to enter", "access", "inspection", "without notice", "at any time"],
+    "severity": "High",
+    "plainEnglish": "The landlord can enter your home without giving you advance notice.",
+    "counterClause": "Landlord must provide at least 24 hours written notice before entering the property.",
+    "negotiationTip": "This is a legal right in most jurisdictions — check local tenancy law."
+  },
+  {
+    "title": "Eviction Without Court Order",
+    "keywords": ["evict", "remove", "vacate immediately", "without legal proceedings"],
+    "severity": "Critical",
+    "plainEnglish": "The landlord may attempt to remove you without going through a formal legal eviction process.",
+    "counterClause": "Any eviction must follow due legal process as required by applicable tenancy law.",
+    "negotiationTip": "Self-help evictions are illegal in most jurisdictions — document everything."
+  },
+  {
+    "title": "No Subletting Allowed",
+    "keywords": ["no subletting", "sublease", "sublet", "prohibited", "consent required"],
+    "severity": "Medium",
+    "plainEnglish": "You are not allowed to rent out a room or the property to anyone else.",
+    "counterClause": "Tenant may sublet with landlord's written consent, which shall not be unreasonably withheld.",
+    "negotiationTip": "If you may need to sublet, negotiate this right upfront."
+  },
+  {
+    "title": "Automatic Lease Renewal",
+    "keywords": ["automatic renewal", "auto-renew", "rollover", "renew unless notice given"],
+    "severity": "Medium",
+    "plainEnglish": "Your lease will automatically renew unless you give notice within a specific window.",
+    "counterClause": "Lease renewal requires written agreement from both parties at least 30 days before expiry.",
+    "negotiationTip": "Set a calendar reminder well before the notice deadline."
+  },
+  {
+    "title": "Holdover Rent Penalty",
+    "keywords": ["holdover", "overstay", "double rent", "penalty rent", "after lease expiry"],
+    "severity": "High",
+    "plainEnglish": "Staying past the lease end date can result in double or triple rent charges.",
+    "counterClause": "Holdover tenancy shall continue at the existing rent rate on a month-to-month basis.",
+    "negotiationTip": "Clarify the exact holdover terms before signing."
+  },
+  {
+    "title": "Tenant Liable for Landlord Legal Costs",
+    "keywords": ["legal costs", "attorney fees", "court costs", "indemnify landlord"],
+    "severity": "High",
+    "plainEnglish": "If any dispute goes to court, you may be required to pay the landlord's legal fees.",
+    "counterClause": "Each party shall bear their own legal costs in the event of a dispute.",
+    "negotiationTip": "This clause is one-sided — request that it either be removed or made mutual."
+  },
+  {
+    "title": "Waiver of Right to Sue",
+    "keywords": ["waive", "arbitration", "no legal action", "binding arbitration"],
+    "severity": "High",
+    "plainEnglish": "You give up the right to take the landlord to court for disputes.",
+    "counterClause": "Both parties retain the right to pursue legal remedies in a court of competent jurisdiction.",
+    "negotiationTip": "Never waive your right to go to court — this is a serious red flag."
+  },
+  {
+    "title": "No Alteration Clause",
+    "keywords": ["no alterations", "modifications", "paint", "install", "written permission"],
+    "severity": "Low",
+    "plainEnglish": "You cannot make any changes to the property, including painting, without written approval.",
+    "counterClause": "Tenant may make minor cosmetic changes that can be reversed upon vacating.",
+    "negotiationTip": "Negotiate the right to make small reversible changes like hanging pictures."
+  },
+  {
+    "title": "Pet Prohibition",
+    "keywords": ["no pets", "pet policy", "animals not permitted", "prior written consent"],
+    "severity": "Low",
+    "plainEnglish": "Keeping pets is not allowed or requires written landlord approval.",
+    "counterClause": "Tenant may keep one pet with prior written consent, subject to an additional refundable deposit.",
+    "negotiationTip": "Negotiate a pet addendum if you have or plan to get a pet."
+  },
+  {
+    "title": "No Rent Receipt Obligation",
+    "keywords": ["no receipt", "receipt not required", "verbal payment", "cash only"],
+    "severity": "Medium",
+    "plainEnglish": "The landlord is not required to provide proof of your rent payments.",
+    "counterClause": "Landlord shall provide a written receipt for every payment received within 3 business days.",
+    "negotiationTip": "Always pay by bank transfer so you have automatic proof of payment."
+  },
+  {
+    "title": "Responsibility for Common Areas",
+    "keywords": ["common area", "shared space", "hallway", "cleaning", "tenant responsibility"],
+    "severity": "Low",
+    "plainEnglish": "You may be held responsible for the upkeep of shared spaces.",
+    "counterClause": "Maintenance of common areas is the landlord's responsibility.",
+    "negotiationTip": "Clarify who is responsible for cleaning and repairs in shared spaces."
+  },
+  {
+    "title": "Parking Fee Not Included",
+    "keywords": ["parking", "additional fee", "not included", "charged separately"],
+    "severity": "Low",
+    "plainEnglish": "Parking is not included in the rent and will be charged as an additional cost.",
+    "counterClause": "One parking space is included in the monthly rent at no additional charge.",
+    "negotiationTip": "Get the total cost including parking in writing before signing."
+  },
+  {
+    "title": "Guest Restrictions",
+    "keywords": ["guest", "visitor", "overnight", "prior approval", "permission required"],
+    "severity": "Low",
+    "plainEnglish": "Having guests stay overnight may require landlord approval.",
+    "counterClause": "Tenant may have guests stay for up to 14 consecutive days without landlord approval.",
+    "negotiationTip": "Clarify the guest policy if you expect family or friends to visit."
+  },
+  {
+    "title": "Force Majeure — Landlord Not Liable",
+    "keywords": ["force majeure", "not liable", "act of god", "natural disaster"],
+    "severity": "Low",
+    "plainEnglish": "The landlord is not responsible if the property becomes uninhabitable due to events outside their control.",
+    "counterClause": "If the property becomes uninhabitable for any reason, rent obligations shall be suspended.",
+    "negotiationTip": "Ensure the clause covers your right to terminate if the property becomes uninhabitable."
+  },
+  {
+    "title": "Noise and Conduct Restrictions",
+    "keywords": ["noise", "nuisance", "quiet hours", "disturb", "conduct"],
+    "severity": "Low",
+    "plainEnglish": "There are strict rules about noise levels and behaviour that could lead to eviction if broken.",
+    "counterClause": "Conduct rules must be reasonable, clearly defined, and applied equally to all tenants.",
+    "negotiationTip": "Ask for a copy of the full house rules before signing."
+  },
+  {
+    "title": "Governing Law",
+    "keywords": ["governing law", "jurisdiction", "courts of"],
+    "severity": "Low",
+    "plainEnglish": "Disputes must be resolved under a specific jurisdiction's law.",
+    "counterClause": "This agreement shall be governed by the laws of the jurisdiction where the property is located.",
+    "negotiationTip": "Ensure the governing law matches where the property actually is."
+  },
+  {
+    "title": "Entire Agreement Clause",
+    "keywords": ["entire agreement", "supersedes", "no prior representations"],
+    "severity": "Low",
+    "plainEnglish": "Only the written contract counts. Verbal promises by the landlord are not enforceable.",
+    "counterClause": "All representations made during the letting process must be documented in this agreement.",
+    "negotiationTip": "Get every landlord promise in writing before you sign."
+  }
+]
