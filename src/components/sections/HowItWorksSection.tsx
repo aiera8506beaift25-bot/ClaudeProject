@@ -1,3 +1,5 @@
+'use client'
+
 const STEPS = [
   {
     num: '01',
@@ -76,7 +78,7 @@ export default function HowItWorksSection() {
 
         {/* 5-col grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5">
-          {STEPS.map((step, i) => (
+          {STEPS.map((step) => (
             <div
               key={step.num}
               className="glass-card rounded-xl p-7 flex flex-col items-start transition-all duration-300 hover:-translate-y-1 group"

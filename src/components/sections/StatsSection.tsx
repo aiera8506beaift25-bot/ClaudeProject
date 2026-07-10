@@ -9,30 +9,6 @@ const STATS = [
   { target: 12900, suffix: '+', label: 'Documents Verified' },
 ]
 
-function useCountUp(ref: React.RefObject<HTMLSpanElement>, target: number, suffix: string, triggered: boolean) {
-  useEffect(() => {
-    if (!triggered || !ref.current) return
-    const duration = 1500
-    const stepTime = 30
-    const steps = duration / stepTime
-    const increment = target / steps
-    let current = 0
-    const el = ref.current
-
-    const timer = setInterval(() => {
-      current += increment
-      if (current >= target) {
-        el.textContent = target.toLocaleString() + suffix
-        clearInterval(timer)
-      } else {
-        el.textContent = Math.floor(current).toLocaleString() + suffix
-      }
-    }, stepTime)
-
-    return () => clearInterval(timer)
-  }, [triggered, target, suffix, ref])
-}
-
 function StatItem({ target, suffix, label }: { target: number; suffix: string; label: string }) {
   const numRef = useRef<HTMLSpanElement>(null)
   const itemRef = useRef<HTMLDivElement>(null)
