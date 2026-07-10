@@ -363,14 +363,22 @@ export default function LiveDemo() {
         </div>
       </div>
 
-      {/* Inline styles for checklist checked state */}
-      <style>{`
+      {/* Inline styles for checklist checked state.
+          Use dangerouslySetInnerHTML so the CSS text is emitted verbatim on
+          both server and client — passing it as JSX children makes React's
+          server renderer HTML-escape the apostrophes in `content: ''`
+          (→ &#x27;), which the client doesn't, causing a hydration mismatch. */}
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         ul li.checked { color: #FAFAFA !important; }
         ul li.checked .step-check { background: #3B82F6 !important; border-color: #3B82F6 !important; }
         ul li.checked .step-check::after { content: ''; display: block; width: 4px; height: 7px; border-bottom: 2px solid white; border-right: 2px solid white; transform: rotate(45deg) translateY(-1px); margin: auto; }
         .animate-spin-slow { animation: spin 0.8s linear infinite; }
         @keyframes spin { to { transform: rotate(360deg); } }
-      `}</style>
+      `,
+        }}
+      />
     </section>
   )
 }
