@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import '@/styles/globals.css'
+import VideoIntroModal from '@/components/VideoIntroModal'
 
 export const metadata: Metadata = {
   title: 'ClauseWise - Read Less. Understand More. Sign Smarter.',
@@ -21,8 +22,11 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta charSet="UTF-8" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="shortcut icon" href="/favicon.svg" />
       </head>
       <body>
+        <VideoIntroModal />
         {children}
       </body>
     </html>

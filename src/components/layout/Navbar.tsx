@@ -79,11 +79,11 @@ export default function Navbar() {
           {/* Desktop actions */}
           <div className="hidden md:flex items-center gap-4">
             <Link
-              href="/signin"
-              className="text-sm font-medium text-white px-[18px] py-2.5 rounded-full transition-all duration-300 hover:bg-[rgba(255,255,255,0.05)]"
+              href="/upload"
+              className="text-sm font-medium text-white px-[18px] py-2.5 rounded-full transition-all duration-300"
               style={{ backgroundColor: '#3B82F6' }}
             >
-              Sign In
+              Analyze Now
             </Link>
           </div>
 
@@ -129,12 +129,12 @@ export default function Navbar() {
           ))}
           <div className="flex flex-col gap-4 mt-6 w-[200px]">
             <Link
-              href="/signin"
+              href="/upload"
               onClick={closeMobile}
-              className="text-base font-medium text-white text-center py-3 px-6 rounded-full border border-[rgba(255,255,255,0.08)] transition-all duration-200 hover:bg-[rgba(255,255,255,0.05)]"
-              style={{ backgroundColor: '#3B82F6', borderColor: '#3B82F6' }}
+              className="text-base font-medium text-white text-center py-3 px-6 rounded-full transition-all duration-200"
+              style={{ backgroundColor: '#3B82F6' }}
             >
-              Sign In
+              Analyze Now
             </Link>
           </div>
         </nav>
