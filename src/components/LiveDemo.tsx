@@ -80,7 +80,6 @@ export default function LiveDemo() {
     timeoutsRef.current = []
 
     /* — reset all state — */
-    const show = (el: HTMLElement | null) => { if (el) { el.style.opacity = '1'; el.style.display = '' } }
     const hide = (el: HTMLElement | null) => { if (el) { el.style.opacity = '0'; el.style.display = 'none' } }
 
     if (stateUploadRef.current) { stateUploadRef.current.style.opacity = '1'; stateUploadRef.current.style.display = 'flex' }

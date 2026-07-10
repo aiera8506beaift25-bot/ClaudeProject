@@ -95,7 +95,6 @@ function FeatureCard({ title, description, icon }: { title: string; description:
         padding: '32px 28px',
         background: '#18181B',
         border: '1px solid rgba(255,255,255,0.08)',
-        boxShadow: '0 2px 12px rgba(0,0,0,0.3)',
         transform: hovered ? 'translateY(-5px)' : 'translateY(0)',
         borderColor: hovered ? 'rgba(255,255,255,0.18)' : 'rgba(255,255,255,0.08)',
         boxShadow: hovered

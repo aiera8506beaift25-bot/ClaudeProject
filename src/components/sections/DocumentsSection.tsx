@@ -55,7 +55,6 @@ function DocCard({ title, description, icon }: { title: string; description: str
         padding: '40px 32px',
         background: '#18181B',
         border: '1px solid rgba(255,255,255,0.08)',
-        boxShadow: '0 2px 16px rgba(0,0,0,0.35)',
         transform: hovered ? 'translateY(-6px)' : 'translateY(0)',
         borderColor: hovered ? 'rgba(255,255,255,0.18)' : 'rgba(255,255,255,0.08)',
         boxShadow: hovered

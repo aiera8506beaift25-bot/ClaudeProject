@@ -1,17 +1,7 @@
 'use client'
 
-<<<<<<< HEAD
-import React from 'react'
-=======
 import React, { useEffect, useRef, useCallback } from 'react'
->>>>>>> 4fbe7c89e2f09d76cbe217157133b7e8b1c242f2
 import Link from 'next/link'
-
-/* ── Types ── */
-interface TimelineStep {
-  label: string
-  state: 'idle' | 'active' | 'completed'
-}
 
 /* ── Constants ── */
 const SUMMARY_TEXT =
@@ -36,14 +26,6 @@ const TIMELINE_LABELS = [
 
 
 export default function HeroSection() {
-<<<<<<< HEAD
-  const badges = [
-    { label: 'Student Friendly' },
-    { label: 'AI Powered' },
-    { label: 'Under 10 Seconds' },
-    { label: 'Privacy First' },
-  ]
-=======
   /* ── Refs for animation targets ── */
   const mockupRef = useRef<HTMLDivElement>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
@@ -213,7 +195,6 @@ export default function HeroSection() {
     runLoop()
     return () => timeoutsRef.current.forEach(clearTimeout)
   }, [runLoop])
->>>>>>> 4fbe7c89e2f09d76cbe217157133b7e8b1c242f2
 
 
   /* ── JSX ── */
@@ -244,20 +225,6 @@ export default function HeroSection() {
             AI Legal Intelligence
           </div>
 
-<<<<<<< HEAD
-          {/* Right Content - Demo Video */}
-          <div className="hidden lg:flex justify-center">
-            <div className="card-glass p-0 w-full max-w-md overflow-hidden">
-              <video
-                src="/demo.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover"
-              />
-            </div>
-=======
           {/* Heading */}
           <h1 className="h1 mb-6">
             Read Less.<br />
@@ -291,7 +258,6 @@ export default function HeroSection() {
                 {b}
               </div>
             ))}
->>>>>>> 4fbe7c89e2f09d76cbe217157133b7e8b1c242f2
           </div>
         </div>
 
