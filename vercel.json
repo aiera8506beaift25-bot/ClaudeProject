@@ -3,6 +3,6 @@
   "outputDirectory": ".next",
   "framework": "nextjs",
   "env": {
-    "NEXT_PUBLIC_API_URL": "https://your-koyeb-app.koyeb.app"
+    "NEXT_PUBLIC_API_URL": "https://clausewise-backend.onrender.com"
   }
 }
